@@ -7,14 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\Abstracts\" />
-    <Folder Include="Repositories\Concretes\" />
-    <Folder Include="Services\Abstracts\" />
-    <Folder Include="Services\Concretes\" />
-    <Folder Include="ViewModels\SupplierViewModels\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ECommerce.DAL\ECommerce.DAL.csproj" />
   </ItemGroup>
 

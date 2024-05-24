@@ -1,4 +1,5 @@
-﻿using ECommerce.Models.Enums;
+﻿using ECommerce.Models.Entities;
+using ECommerce.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -21,5 +22,6 @@ namespace ECommerce.BLL.ViewModels.ProductViewModels
         public DataStatus Status { get; set; }
         [Display(Name = "Aktiflik")]
         public bool IsActive { get; set; }
+        public virtual Category Category {  get; set; } 
     }
 }

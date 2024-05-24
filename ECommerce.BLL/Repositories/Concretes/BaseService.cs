@@ -54,7 +54,8 @@ namespace ECommerce.BLL.Repositories.Concretes
             try
             {
                 entity.Status = ECommerce.Models.Enums.DataStatus.DELETED;
-                Update(entity);
+                await Update(entity);
+                await _context.SaveChangesAsync();
                 return "Silme işlemi başarılı";
             }
             catch (Exception ex)

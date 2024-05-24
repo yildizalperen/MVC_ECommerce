@@ -6,4 +6,23 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\lib\adminlte\dist\css\adminlte.css.map" />
+    <None Include="wwwroot\lib\adminlte\dist\css\adminlte.min.css.map" />
+    <None Include="wwwroot\lib\adminlte\dist\css\adminlte.rtl.css.map" />
+    <None Include="wwwroot\lib\adminlte\dist\css\adminlte.rtl.min.css.map" />
+    <None Include="wwwroot\lib\adminlte\dist\js\adminlte.js" />
+    <None Include="wwwroot\lib\adminlte\dist\js\adminlte.js.map" />
+    <None Include="wwwroot\lib\adminlte\dist\js\adminlte.min.js" />
+    <None Include="wwwroot\lib\adminlte\dist\js\adminlte.min.js.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ECommerce.BLL\ECommerce.BLL.csproj" />
+  </ItemGroup>
+
 </Project>

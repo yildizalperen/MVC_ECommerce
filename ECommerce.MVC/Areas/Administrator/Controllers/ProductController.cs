@@ -1,4 +1,6 @@
 ﻿using ECommerce.BLL.Services.Abstracts;
+using ECommerce.BLL.Services.Concretes;
+using ECommerce.BLL.ViewModels.CategoryViewModels;
 using ECommerce.BLL.ViewModels.ProductViewModels;
 using ECommerce.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -9,10 +11,14 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
+        private readonly ICategoryService _categoryService;
+        private readonly ISupplierService _supplierService;
 
-        public ProductController(IProductService productService)
+        public ProductController(IProductService productService, ICategoryService categoryService, ISupplierService supplierService)
         {
             _productService = productService;
+            _categoryService = categoryService;
+            _supplierService = supplierService;
         }
         public IActionResult Index()
         {
@@ -48,6 +54,8 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
                     SupplierId = productVM.SupplierId,
                     CategoryId = productVM.CategoryId,
                     ImagePath = productVM.ImagePath,
+                    Category = _categoryService.GetCategoryById(productVM.CategoryId),
+                    Supplier = _supplierService.GetSupplierById(productVM.SupplierId),
                 };
                 string result = await _productService.AddProductAsync(product);
                 ViewData["Result"] = result;
@@ -58,6 +66,38 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
             {
                 return View();
             }
+        }
+
+        [HttpGet]
+
+        public IActionResult Update(int id)
+        {
+            var updated = _productService.GetProductById(id);
+
+            
+            if (updated != null)
+            {
+                return View(updated);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(Product product)
+        {
+            product.Category = _categoryService.GetCategoryById(product.CategoryId);
+            product.Supplier = _supplierService.GetSupplierById(product.SupplierId);
+
+            string result = await _productService.UpdateProductAsync(product);
+
+            TempData["result"] = result;
+
+            return RedirectToAction("Index", "Product");
+
         }
     }
 }

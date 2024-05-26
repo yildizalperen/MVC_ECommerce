@@ -143,13 +143,21 @@ namespace ECommerce.BLL.Repositories.Concretes
 
                     entity.Status = ECommerce.Models.Enums.DataStatus.UPDATED;
                     _entities.Entry(entity).State = EntityState.Modified;
+                    _context.SaveChanges();
                     result = "Veri Güncellendi";
                     break;
                 case ECommerce.Models.Enums.DataStatus.DELETED:
 
                     entity.Status = ECommerce.Models.Enums.DataStatus.DELETED;
                     _entities.Entry(entity).State = EntityState.Modified;
+                    _context.SaveChanges();
                     result = "Veri Silindi";
+                    break;
+                case ECommerce.Models.Enums.DataStatus.INSERTED:
+                    entity.Status = ECommerce.Models.Enums.DataStatus.UPDATED;
+                    _entities.Entry(entity).State = EntityState.Modified;
+                    _context.SaveChanges();
+                    result = "Veri Güncellendi";
                     break;
 
             }

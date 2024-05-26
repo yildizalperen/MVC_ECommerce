@@ -50,14 +50,44 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
 
                 string result = await _categoryService.AddCategoryAsync(category);
                 TempData["Result"] = result;
-                return RedirectToAction("Index","Category");
+                return RedirectToAction("Index", "Category");
 
             }
             else
             {
                 return View(categoryVM);
             }
-            
+
         }
+
+        [HttpGet]
+
+        public IActionResult Update(int id)
+        {
+            var updated = _categoryService.GetCategoryById(id);
+            
+            if (updated != null)
+            {
+                return View(updated);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(Category category)
+        {
+
+            string result = await _categoryService.UpdateCategoryAsync(category);
+
+            TempData["result"] = result;
+
+            return RedirectToAction("Index", "Category");
+
+        }
+
     }
 }

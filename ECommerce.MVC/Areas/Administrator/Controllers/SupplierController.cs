@@ -1,4 +1,5 @@
 ﻿using ECommerce.BLL.Services.Abstracts;
+using ECommerce.BLL.Services.Concretes;
 using ECommerce.BLL.ViewModels.SupplierViewModels;
 using ECommerce.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -40,7 +41,7 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(SupplierViewModelUser supplierVM)
         {
-            if (ModelState.IsValid) 
+            if (ModelState.IsValid)
             {
                 Supplier supplier = new Supplier()
                 {
@@ -58,6 +59,35 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
             {
                 return View(supplierVM);
             }
+        }
+
+        [HttpGet]
+
+        public IActionResult Update(int id)
+        {
+            var updated = _supplierService.GetSupplierById(id);
+
+
+            if (updated != null)
+            {
+                return View(updated);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(Supplier supplier)
+        {
+            string result = await _supplierService.UpdateSupplierAsync(supplier);
+
+            TempData["result"] = result;
+
+            return RedirectToAction("Index", "Supplier");
+
         }
     }
 }

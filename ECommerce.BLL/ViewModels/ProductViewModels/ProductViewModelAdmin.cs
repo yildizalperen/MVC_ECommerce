@@ -22,6 +22,7 @@ namespace ECommerce.BLL.ViewModels.ProductViewModels
         public DataStatus Status { get; set; }
         [Display(Name = "Aktiflik")]
         public bool IsActive { get; set; }
-        public virtual Category Category {  get; set; } 
+        [Display(Name = "Fotoğraf Yolu")]
+        public string ImagePath { get; set; }
     }
 }

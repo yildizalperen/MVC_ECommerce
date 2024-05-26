@@ -13,7 +13,7 @@ namespace ECommerce.DAL.Context
     public class ECommerceContext : IdentityDbContext<AppUser,AppUserRole,Guid>
     {
         public ECommerceContext(DbContextOptions<ECommerceContext> options) : base(options) { }
-        
+
 
         //DbSets
         public DbSet<Category> Categories { get; set; }

@@ -89,5 +89,37 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
 
         }
 
+        public IActionResult Active()
+        {
+            var categories = _categoryService
+                .GetActiveCategories()
+                .OrderByDescending(x => x.CreatedDate)
+                .Select(x => new CategoryViewModelAdmin
+                {
+                    Id = x.ID,
+                    CategoryName = x.CategoryName,
+                    Description = x.Description,
+                    IsActive = x.IsActive,
+                    Status = x.Status
+                }).ToList();
+            return View(categories);
+        }
+
+        public IActionResult Passive()
+        {
+            var categories = _categoryService
+                .GetPassiveCategories()
+                .OrderByDescending(x => x.CreatedDate)
+                .Select(x => new CategoryViewModelAdmin
+                {
+                    Id = x.ID,
+                    CategoryName = x.CategoryName,
+                    Description = x.Description,
+                    IsActive = x.IsActive,
+                    Status = x.Status
+                }).ToList();
+            return View(categories);
+        }
+
     }
 }

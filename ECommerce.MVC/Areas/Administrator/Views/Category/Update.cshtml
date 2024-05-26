@@ -24,6 +24,12 @@
                                 <label>New Description</label>
                                 <input type="text" class="form-control" asp-for="@Model.Description" placeholder="Enter New Category Description">
                             </div>
+
+                            <div class="form-group">
+                                <label>Aktif </label>
+                                <input type="checkbox" class="checkbox" asp-for="@Model.IsActive">
+                            </div>
+
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-dark">Update</button>

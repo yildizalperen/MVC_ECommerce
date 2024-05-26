@@ -1,4 +1,4 @@
-﻿@model List<SupplierViewModelAdmin>
+﻿@model List<ProductViewModelAdmin>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
@@ -9,17 +9,16 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Company Name</th>
-                <th>Adress</th>
-                <th>Contact Name</th>
-                <th>Phone Number</th>
+                <th>Product Name</th>
+                <th>Unit Price</th>
+                <th>UnitsInStock</th>
+                <th>Category</th>
+                <th>Supplier</th>
                 <th>Status</th>
                 <th>Is Active</th>
                 <th></th>
                 <th>
-                    <a href="/Administrator/Supplier/Create" class="btn btn-dark btn-md">Yeni Tedarikçi</a>
-                    <a href="/Administrator/Supplier/Active" class="btn btn-dark btn-md">Aktif Tedarikçiler</a>
-                    <a href="/Administrator/Supplier/Passive" class="btn btn-dark btn-md">Pasif Tedarikçiler</a>
+                    <a href="/Administrator/Product/Index" class="btn btn-dark btn-md">Hepsi</a>
                 </th>
             </tr>
         </thead>
@@ -29,10 +28,11 @@
             {
                 <tr>
                     <td>@item.Id</td>
-                    <td>@item.CompanyName</td>
-                    <td>@item.Address</td>
-                    <td>@item.ContactName</td>
-                    <td>@item.PhoneNumber</td>
+                    <td>@item.ProductName</td>
+                    <td>@item.UnitPrice</td>
+                    <td>@item.UnitsInStock</td>
+                    <td></td>
+                    <td></td>
                     <td>
                         @switch (item.Status)
                         {
@@ -55,8 +55,8 @@
                         }
                     </td>
                     <td>
-                        <a href="~/Administrator/Supplier/Update/@item.Id" class="btn btn-success btn-sm">Update</a>
-                        <a href="~/Administrator/Supplier/Delete/@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="~/Administrator/Product/Update/@item.Id" class="btn btn-success btn-sm">Update</a>
+                        <a href="~/Administrator/Product/Delete/@item.Id" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>
 
@@ -65,4 +65,3 @@
         </tbody>
     </table>
 </div>
-

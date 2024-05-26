@@ -99,5 +99,37 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
             return RedirectToAction("Index", "Product");
 
         }
+
+        public IActionResult Active()
+        {
+            var products = _productService.GetActiveProducts()
+                .OrderByDescending(x => x.CreatedDate)
+                .Select(x => new ProductViewModelAdmin
+                {
+                    Id = x.ID,
+                    ProductName = x.ProductName,
+                    UnitPrice = x.UnitPrice,
+                    UnitsInStock = x.UnitsInStock,
+                    IsActive = x.IsActive,
+                    Status = x.Status,
+                }).ToList();
+            return View(products);
+        }
+
+        public IActionResult Passive()
+        {
+            var products = _productService.GetPassiveProducts()
+                .OrderByDescending(x => x.CreatedDate)
+                .Select(x => new ProductViewModelAdmin
+                {
+                    Id = x.ID,
+                    ProductName = x.ProductName,
+                    UnitPrice = x.UnitPrice,
+                    UnitsInStock = x.UnitsInStock,
+                    IsActive = x.IsActive,
+                    Status = x.Status,
+                }).ToList();
+            return View(products);
+        }
     }
 }

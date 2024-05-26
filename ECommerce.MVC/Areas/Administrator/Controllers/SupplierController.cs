@@ -89,5 +89,39 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
             return RedirectToAction("Index", "Supplier");
 
         }
+
+        public IActionResult Active()
+        {
+            var suppliers = _supplierService.GetActiveSuppliers()
+                .OrderByDescending(x => x.CreatedDate)
+                .Select(x => new SupplierViewModelAdmin
+                {
+                    Id = x.ID,
+                    CompanyName = x.CompanyName,
+                    Address = x.Address,
+                    ContactName = x.ContactName,
+                    PhoneNumber = x.PhoneNumber,
+                    IsActive = x.IsActive,
+                    Status = x.Status,
+                }).ToList();
+            return View(suppliers);
+        }
+
+        public IActionResult Passive()
+        {
+            var suppliers = _supplierService.GetPassiveSuppliers()
+                .OrderByDescending(x => x.CreatedDate)
+                .Select(x => new SupplierViewModelAdmin
+                {
+                    Id = x.ID,
+                    CompanyName = x.CompanyName,
+                    Address = x.Address,
+                    ContactName = x.ContactName,
+                    PhoneNumber = x.PhoneNumber,
+                    IsActive = x.IsActive,
+                    Status = x.Status,
+                }).ToList();
+            return View(suppliers);
+        }
     }
 }

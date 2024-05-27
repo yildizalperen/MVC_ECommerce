@@ -38,6 +38,7 @@ namespace ECommerce.DAL.Context
             //OrderDetailConfiguration
             builder.ApplyConfiguration(new OrderDetailConfiguration());
             //OrderConfiguration
+            builder.ApplyConfiguration(new OrderConfiguration());
             base.OnModelCreating(builder);
         }
     }

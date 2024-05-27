@@ -8,6 +8,7 @@ namespace ECommerce.BLL.ViewModels.CategoryViewModels
 {
     public class CategoryViewModelUser
     {
+        public int ID { get; set; }
         public string CategoryName { get; set; }
         public string Description { get; set; }
     }

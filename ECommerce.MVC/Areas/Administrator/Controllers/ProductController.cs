@@ -41,6 +41,12 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            ViewBag.Categories = _categoryService.GetAllCategories().Select(x => new CategoryViewModelUser
+            {
+
+            });
+
+
             return View();
         }
 

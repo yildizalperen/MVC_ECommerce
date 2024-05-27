@@ -14,7 +14,7 @@ namespace ECommerce.BLL.ViewModels.ProductViewModels
         public short UnitsInStock { get; set; }
         public int SupplierId  { get; set; }
         public int CategoryId { get; set; }
-        public string ImagePath { get; set; }
+        public string? ImagePath { get; set; }
 
     }
 }

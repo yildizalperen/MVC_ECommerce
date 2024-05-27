@@ -27,6 +27,7 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
         //Product Home (List All Products)
         public IActionResult Index()
         {
+            
             var products = _productService.GetAllProducts()
                 .OrderByDescending(x => x.CreatedDate)
                 .Select(x => new ProductViewModelAdmin{
@@ -36,7 +37,10 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
                 UnitsInStock = x.UnitsInStock,
                 IsActive = x.IsActive,
                 Status = x.Status,
+                SupplierId = x.SupplierId,
+                CategoryId = x.CategoryId
             }).ToList();
+
             return View(products);
         }
 
@@ -91,7 +95,7 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
                     var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\products", ImageEditResult);
                     using (var stream = new FileStream(path, FileMode.Create))
                     {
-                        productImage.CopyToAsync(stream);
+                        await productImage.CopyToAsync(stream);
                     }
 
                     Product product = new Product()
@@ -101,7 +105,7 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
                         UnitsInStock = productVM.UnitsInStock,
                         SupplierId = productVM.SupplierId,
                         CategoryId = productVM.CategoryId,
-                        ImagePath = productVM.ImagePath,
+                        ImagePath = ImageEditResult,
                         Category = _categoryService.GetCategoryById(productVM.CategoryId),
                         Supplier = _supplierService.GetSupplierById(productVM.SupplierId),
                     };

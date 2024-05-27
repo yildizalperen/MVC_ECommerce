@@ -23,6 +23,9 @@ namespace ECommerce.BLL.ViewModels.ProductViewModels
         [Display(Name = "Aktiflik")]
         public bool IsActive { get; set; }
         [Display(Name = "Fotoğraf Yolu")]
-        public string ImagePath { get; set; }
+        public string? ImagePath { get; set; }
+
+        public int SupplierId { get; set; }
+        public int CategoryId { get; set; }
     }
 }

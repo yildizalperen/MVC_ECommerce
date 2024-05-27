@@ -15,6 +15,8 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
         {
             _supplierService = supplierService;
         }
+
+        //Supplier Home (List All Suppliers)
         public IActionResult Index()
         {
             var suppliers = _supplierService.GetAllSuppliers()
@@ -32,12 +34,15 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
             return View(suppliers);
         }
 
+
+        //Get: Create Supplier
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
 
+        //Post: Create Supplier
         [HttpPost]
         public async Task<IActionResult> Create(SupplierViewModelUser supplierVM)
         {
@@ -61,8 +66,8 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
             }
         }
 
+        //Get: Update Supplier
         [HttpGet]
-
         public IActionResult Update(int id)
         {
             var updated = _supplierService.GetSupplierById(id);
@@ -79,6 +84,7 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
 
         }
 
+        //Post: Update Supplier
         [HttpPost]
         public async Task<IActionResult> Update(Supplier supplier)
         {
@@ -95,6 +101,7 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
 
         }
 
+        //List Active Suppliers
         public IActionResult Active()
         {
             var suppliers = _supplierService.GetActiveSuppliers()
@@ -112,6 +119,7 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
             return View(suppliers);
         }
 
+        //List Passive Suppliers
         public IActionResult Passive()
         {
             var suppliers = _supplierService.GetPassiveSuppliers()
@@ -129,6 +137,7 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
             return View(suppliers);
         }
 
+        //Get: Delete data from database (Destroy Data)
         [HttpGet]
         public IActionResult Destroy(int id)
         {
@@ -142,8 +151,8 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        //Post: Delete data from database (Destroy Data)
         [HttpPost]
-
         public async Task<IActionResult> Destroy(Supplier supplier)
         {
             if (supplier != null)

@@ -15,6 +15,7 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
             _categoryService = categoryService;
         }
 
+        //Category Home (List All Categories)
         public IActionResult Index()
         {
             var categories = _categoryService
@@ -31,12 +32,14 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
             return View(categories);
         }
 
+        //Get: Create Category
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
 
+        //Post: Create Category
         [HttpPost]
         public async Task<IActionResult> Create(CategoryViewModelUser categoryVM)
         {
@@ -60,8 +63,8 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
 
         }
 
+        //Get: Update Category
         [HttpGet]
-
         public IActionResult Update(int id)
         {
             var updated = _categoryService.GetCategoryById(id);
@@ -77,6 +80,7 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
 
         }
 
+        //Post: Update Category
         [HttpPost]
         public async Task<IActionResult> Update(Category category)
         {
@@ -93,6 +97,7 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
 
         }
 
+        //List Active Categories
         public IActionResult Active()
         {
             var categories = _categoryService
@@ -109,6 +114,7 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
             return View(categories);
         }
 
+        //List Passive Categories
         public IActionResult Passive()
         {
             var categories = _categoryService
@@ -124,7 +130,7 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
                 }).ToList();
             return View(categories);
         }
-
+        //Get: Delete data from database (Destroy Data)
         [HttpGet]
         public IActionResult Destroy(int id)
         {
@@ -138,8 +144,8 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        //Post: Delete data from database (Destroy Data)
         [HttpPost]
-
         public async Task<IActionResult> Destroy (Category category)
         {
             if (category != null)

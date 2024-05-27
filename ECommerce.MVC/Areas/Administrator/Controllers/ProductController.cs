@@ -20,6 +20,8 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
             _categoryService = categoryService;
             _supplierService = supplierService;
         }
+
+        //Product Home (List All Products)
         public IActionResult Index()
         {
             var products = _productService.GetAllProducts()
@@ -35,12 +37,14 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
             return View(products);
         }
 
+        //Get: Create Product
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
 
+        //Post: Create Product
         [HttpPost]
         public async Task<IActionResult> Create(ProductViewModelUser productVM)
         {
@@ -68,8 +72,8 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
             }
         }
 
+        //Get: Update Product
         [HttpGet]
-
         public IActionResult Update(int id)
         {
             var updated = _productService.GetProductById(id);
@@ -86,6 +90,7 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
 
         }
 
+        //Post: Update Product
         [HttpPost]
         public async Task<IActionResult> Update(Product product)
         {
@@ -104,6 +109,7 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
 
         }
 
+        //List Active Products
         public IActionResult Active()
         {
             var products = _productService.GetActiveProducts()
@@ -120,6 +126,7 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
             return View(products);
         }
 
+        //List Passive Product
         public IActionResult Passive()
         {
             var products = _productService.GetPassiveProducts()
@@ -136,6 +143,7 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
             return View(products);
         }
 
+        //Get: Delete data from database (Destroy Data)
         [HttpGet]
         public IActionResult Destroy(int id)
         {
@@ -148,9 +156,8 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-
+        //Post: Delete data from database (Destroy Data)
         [HttpPost]
-
         public async Task<IActionResult> Destroy(Product product)
         {
             if (product != null)

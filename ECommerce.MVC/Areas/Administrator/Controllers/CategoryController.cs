@@ -1,5 +1,6 @@
 ﻿using ECommerce.BLL.Services.Abstracts;
 using ECommerce.BLL.ViewModels.CategoryViewModels;
+using ECommerce.BLL.ViewModels.ProductViewModels;
 using ECommerce.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,10 +10,12 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
     public class CategoryController : Controller
     {
         private readonly ICategoryService _categoryService;
+        private readonly IProductService _productService;
 
-        public CategoryController(ICategoryService categoryService)
+        public CategoryController(ICategoryService categoryService, IProductService productService)
         {
             _categoryService = categoryService;
+            _productService = productService;
         }
 
         //Category Home (List All Categories)
@@ -160,5 +163,22 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
             return View(category);
         }
 
+        public IActionResult Details(int id)
+        {
+            var category = _categoryService.GetCategoryById(id);
+            List<ProductViewModelAdmin> products = new List<ProductViewModelAdmin>();
+
+            products = category.Products.Where(x=>x.ID==id).Select(x => new ProductViewModelAdmin(){
+            Id = x.ID,
+            UnitPrice = x.UnitPrice,
+            UnitsInStock = x.UnitsInStock,
+            ImagePath = x.ImagePath,
+            Status = x.Status,
+            IsActive = x.IsActive,
+            
+            }).ToList();
+
+            return View(products);
+        }
     }
 }

@@ -2,8 +2,11 @@
 using ECommerce.BLL.Services.Concretes;
 using ECommerce.BLL.ViewModels.CategoryViewModels;
 using ECommerce.BLL.ViewModels.ProductViewModels;
+using ECommerce.BLL.ViewModels.SupplierViewModels;
+using ECommerce.Common.ImageHelpers;
 using ECommerce.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ECommerce.MVC.Areas.Administrator.Controllers
 {
@@ -43,8 +46,28 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
         {
             ViewBag.Categories = _categoryService.GetAllCategories().Select(x => new CategoryViewModelUser
             {
-
+                CategoryName = x.CategoryName,
+                Description = x.Description,
+                ID = x.ID
+            }).Select(s=> new SelectListItem{
+                Text = s.CategoryName,
+                Value = s.ID.ToString()
             });
+
+            ViewBag.Suppliers = _supplierService.GetAllSuppliers().Select(x => new SupplierViewModelUser
+            {
+                CompanyName = x.CompanyName,
+                ContactName = x.ContactName,
+                Address = x.Address,
+                PhoneNumber = x.PhoneNumber,
+                ID = x.ID
+
+            }).Select(s => new SelectListItem
+            {
+                Text = s.CompanyName,
+                Value = s.ID.ToString()
+            });
+
 
 
             return View();
@@ -52,29 +75,48 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
 
         //Post: Create Product
         [HttpPost]
-        public async Task<IActionResult> Create(ProductViewModelUser productVM)
+        public async Task<IActionResult> Create(ProductViewModelUser productVM, IFormFile productImage)
         {
             if (ModelState.IsValid)
             {
-                Product product = new Product()
-                {
-                    ProductName = productVM.ProductName,
-                    UnitPrice = productVM.UnitPrice,
-                    UnitsInStock= productVM.UnitsInStock,
-                    SupplierId = productVM.SupplierId,
-                    CategoryId = productVM.CategoryId,
-                    ImagePath = productVM.ImagePath,
-                    Category = _categoryService.GetCategoryById(productVM.CategoryId),
-                    Supplier = _supplierService.GetSupplierById(productVM.SupplierId),
-                };
-                string result = await _productService.AddProductAsync(product);
-                ViewData["Result"] = result;
+                var ImageEditResult = ImageHelper.Upload(productImage.FileName);
 
-                return RedirectToAction("Index", "Product");
+                if (ImageEditResult == "0")
+                {
+                    TempData["Error"] = "Görsel izin verilen formatta değil";
+                    return View();
+                }
+                else
+                {
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\products", ImageEditResult);
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {
+                        productImage.CopyToAsync(stream);
+                    }
+
+                    Product product = new Product()
+                    {
+                        ProductName = productVM.ProductName,
+                        UnitPrice = productVM.UnitPrice,
+                        UnitsInStock = productVM.UnitsInStock,
+                        SupplierId = productVM.SupplierId,
+                        CategoryId = productVM.CategoryId,
+                        ImagePath = productVM.ImagePath,
+                        Category = _categoryService.GetCategoryById(productVM.CategoryId),
+                        Supplier = _supplierService.GetSupplierById(productVM.SupplierId),
+                    };
+                    string result = await _productService.AddProductAsync(product);
+                    ViewData["Result"] = result;
+
+                    return RedirectToAction("Index", "Product");
+
+                }
+
+               
             }
             else
             {
-                return View();
+                return View(productVM);
             }
         }
 

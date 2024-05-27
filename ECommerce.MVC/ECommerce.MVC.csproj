@@ -27,6 +27,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ECommerce.BLL\ECommerce.BLL.csproj" />
+    <ProjectReference Include="..\ECommerce.Common\ECommerce.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\products\" />
   </ItemGroup>
 
 </Project>

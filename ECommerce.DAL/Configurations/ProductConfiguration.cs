@@ -14,7 +14,7 @@ namespace ECommerce.DAL.Configurations
             builder.HasOne(x => x.Supplier).WithMany(x => x.Products).HasForeignKey(x => x.SupplierId);
 
             //Property Customize
-            builder.Property(x => x.ProductName).HasMaxLength(255);
+            builder.Property(x => x.ProductName).HasMaxLength(55);
             builder.Property(x => x.ProductName).IsRequired(true);
 
             //HasData

@@ -140,8 +140,8 @@ namespace ECommerce.DAL.Migrations
 
                     b.Property<string>("CategoryName")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
 
                     b.Property<string>("CreatedComputerName")
                         .IsRequired()
@@ -187,11 +187,11 @@ namespace ECommerce.DAL.Migrations
                             ID = 1,
                             CategoryName = "Test Category 1",
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 699, DateTimeKind.Local).AddTicks(7344),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 660, DateTimeKind.Local).AddTicks(8105),
                             CreatedIpAddress = "192.168.1.21",
                             Description = "Test Category 1 Description",
                             IsActive = true,
-                            MasterId = new Guid("d46e50ab-8925-4435-986c-b97a631c7ec6"),
+                            MasterId = new Guid("0cb5bfdc-a8ed-4a0d-b59f-9be7d9be3a53"),
                             Status = 0
                         },
                         new
@@ -199,11 +199,11 @@ namespace ECommerce.DAL.Migrations
                             ID = 2,
                             CategoryName = "Test Category 2",
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 700, DateTimeKind.Local).AddTicks(63),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 661, DateTimeKind.Local).AddTicks(1053),
                             CreatedIpAddress = "192.168.1.21",
                             Description = "Test Category 2 Description",
                             IsActive = true,
-                            MasterId = new Guid("1e03340e-d99d-4769-973b-6790d83ca6c7"),
+                            MasterId = new Guid("8bfcb228-58cf-4113-9d8f-613a8587b114"),
                             Status = 0
                         },
                         new
@@ -211,11 +211,11 @@ namespace ECommerce.DAL.Migrations
                             ID = 3,
                             CategoryName = "Test Category 3",
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 700, DateTimeKind.Local).AddTicks(1694),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 661, DateTimeKind.Local).AddTicks(2689),
                             CreatedIpAddress = "192.168.1.21",
                             Description = "Test Category 3 Description",
                             IsActive = true,
-                            MasterId = new Guid("5d05f597-3f83-46d2-9987-82eba4d8be57"),
+                            MasterId = new Guid("541f2144-0e45-44a1-80bb-e5ea9bd44a13"),
                             Status = 0
                         });
                 });
@@ -254,8 +254,8 @@ namespace ECommerce.DAL.Migrations
 
                     b.Property<string>("ProductName")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasMaxLength(55)
+                        .HasColumnType("nvarchar(55)");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -292,528 +292,528 @@ namespace ECommerce.DAL.Migrations
                             ID = 101,
                             CategoryId = 1,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 701, DateTimeKind.Local).AddTicks(6292),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 662, DateTimeKind.Local).AddTicks(7582),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=28",
+                            ImagePath = "https://picsum.photos/640/480/?image=896",
                             IsActive = true,
-                            MasterId = new Guid("57632bb2-3b6f-4264-b296-befa6c972b12"),
-                            ProductName = "Chips",
+                            MasterId = new Guid("4d126777-000c-40ba-8a42-22fe1c360bd9"),
+                            ProductName = "Hat",
                             Status = 0,
                             SupplierId = 1,
-                            UnitPrice = 442.59m,
-                            UnitsInStock = (short)90
+                            UnitPrice = 638.70m,
+                            UnitsInStock = (short)91
                         },
                         new
                         {
                             ID = 102,
                             CategoryId = 1,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 701, DateTimeKind.Local).AddTicks(8214),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 662, DateTimeKind.Local).AddTicks(9451),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=686",
+                            ImagePath = "https://picsum.photos/640/480/?image=912",
                             IsActive = true,
-                            MasterId = new Guid("2427a31b-cb47-44bd-837a-a31b7002d39b"),
-                            ProductName = "Pizza",
+                            MasterId = new Guid("ca2b9457-d191-42a1-ae6f-27da365e8a36"),
+                            ProductName = "Shirt",
                             Status = 0,
                             SupplierId = 1,
-                            UnitPrice = 625.11m,
-                            UnitsInStock = (short)68
+                            UnitPrice = 233.30m,
+                            UnitsInStock = (short)5
                         },
                         new
                         {
                             ID = 103,
                             CategoryId = 1,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 701, DateTimeKind.Local).AddTicks(9852),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 663, DateTimeKind.Local).AddTicks(1075),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=581",
+                            ImagePath = "https://picsum.photos/640/480/?image=191",
                             IsActive = true,
-                            MasterId = new Guid("3bd72d12-a29b-42f5-93a8-fee800bcf68f"),
-                            ProductName = "Pizza",
+                            MasterId = new Guid("da0488a7-88ec-4e8e-8d67-85a99c3ddeb1"),
+                            ProductName = "Table",
                             Status = 0,
                             SupplierId = 1,
-                            UnitPrice = 253.25m,
-                            UnitsInStock = (short)9
+                            UnitPrice = 970.78m,
+                            UnitsInStock = (short)12
                         },
                         new
                         {
                             ID = 104,
                             CategoryId = 1,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 702, DateTimeKind.Local).AddTicks(1454),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 663, DateTimeKind.Local).AddTicks(2656),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=894",
+                            ImagePath = "https://picsum.photos/640/480/?image=902",
                             IsActive = true,
-                            MasterId = new Guid("e0ce6092-c523-4ff7-8a89-43a2725d0298"),
-                            ProductName = "Pants",
+                            MasterId = new Guid("f5dcec2d-e116-4699-b5d2-6df985c092e5"),
+                            ProductName = "Cheese",
                             Status = 0,
                             SupplierId = 1,
-                            UnitPrice = 789.57m,
-                            UnitsInStock = (short)53
+                            UnitPrice = 461.36m,
+                            UnitsInStock = (short)41
                         },
                         new
                         {
                             ID = 105,
                             CategoryId = 1,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 702, DateTimeKind.Local).AddTicks(3026),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 663, DateTimeKind.Local).AddTicks(4198),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=479",
+                            ImagePath = "https://picsum.photos/640/480/?image=1012",
                             IsActive = true,
-                            MasterId = new Guid("88785ae8-042a-4090-8d61-759853f903ef"),
-                            ProductName = "Shirt",
+                            MasterId = new Guid("5fdcc11e-7590-413d-bb43-b8635ef28d59"),
+                            ProductName = "Chips",
                             Status = 0,
                             SupplierId = 1,
-                            UnitPrice = 369.85m,
-                            UnitsInStock = (short)13
+                            UnitPrice = 72.24m,
+                            UnitsInStock = (short)69
                         },
                         new
                         {
                             ID = 106,
                             CategoryId = 1,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 702, DateTimeKind.Local).AddTicks(4592),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 663, DateTimeKind.Local).AddTicks(5774),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=224",
+                            ImagePath = "https://picsum.photos/640/480/?image=1069",
                             IsActive = true,
-                            MasterId = new Guid("b1d18f71-865e-4b46-bc50-282ee84eb720"),
-                            ProductName = "Chair",
+                            MasterId = new Guid("ec42c6e8-00a0-487a-abb9-1c2c32de438f"),
+                            ProductName = "Keyboard",
                             Status = 0,
                             SupplierId = 1,
-                            UnitPrice = 355.57m,
-                            UnitsInStock = (short)24
+                            UnitPrice = 252.09m,
+                            UnitsInStock = (short)99
                         },
                         new
                         {
                             ID = 107,
                             CategoryId = 1,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 702, DateTimeKind.Local).AddTicks(6404),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 663, DateTimeKind.Local).AddTicks(7298),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=423",
+                            ImagePath = "https://picsum.photos/640/480/?image=253",
                             IsActive = true,
-                            MasterId = new Guid("a5fc5cbf-57f2-4dc0-b7cc-ad4b825edf46"),
-                            ProductName = "Salad",
+                            MasterId = new Guid("6036cc5e-bad5-4508-a599-80fe89d147f4"),
+                            ProductName = "Bacon",
                             Status = 0,
                             SupplierId = 1,
-                            UnitPrice = 670.10m,
-                            UnitsInStock = (short)40
+                            UnitPrice = 427.46m,
+                            UnitsInStock = (short)9
                         },
                         new
                         {
                             ID = 108,
                             CategoryId = 1,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 702, DateTimeKind.Local).AddTicks(7982),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 663, DateTimeKind.Local).AddTicks(8826),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=522",
+                            ImagePath = "https://picsum.photos/640/480/?image=790",
                             IsActive = true,
-                            MasterId = new Guid("b4daa563-a8ff-4ffa-be95-244258618d52"),
-                            ProductName = "Fish",
+                            MasterId = new Guid("12edf0e9-d622-49f2-9b2b-576d42009557"),
+                            ProductName = "Chips",
                             Status = 0,
                             SupplierId = 1,
-                            UnitPrice = 580.22m,
-                            UnitsInStock = (short)92
+                            UnitPrice = 888.31m,
+                            UnitsInStock = (short)73
                         },
                         new
                         {
                             ID = 109,
                             CategoryId = 1,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 702, DateTimeKind.Local).AddTicks(9526),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 664, DateTimeKind.Local).AddTicks(333),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=367",
+                            ImagePath = "https://picsum.photos/640/480/?image=858",
                             IsActive = true,
-                            MasterId = new Guid("fa0fd2b7-0762-430a-a855-ae24be971ba8"),
-                            ProductName = "Sausages",
+                            MasterId = new Guid("1014c96c-09a5-4068-99f4-9a6158901835"),
+                            ProductName = "Shoes",
                             Status = 0,
                             SupplierId = 1,
-                            UnitPrice = 620.98m,
-                            UnitsInStock = (short)8
+                            UnitPrice = 310.44m,
+                            UnitsInStock = (short)39
                         },
                         new
                         {
                             ID = 110,
                             CategoryId = 1,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 703, DateTimeKind.Local).AddTicks(1067),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 664, DateTimeKind.Local).AddTicks(1841),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=521",
+                            ImagePath = "https://picsum.photos/640/480/?image=299",
                             IsActive = true,
-                            MasterId = new Guid("e7d54116-fd37-4c00-b81b-b70e63e6bd47"),
-                            ProductName = "Towels",
+                            MasterId = new Guid("2dcd09a0-a8cd-4d35-96c2-959b9038fd85"),
+                            ProductName = "Shirt",
                             Status = 0,
                             SupplierId = 1,
-                            UnitPrice = 390.86m,
-                            UnitsInStock = (short)66
+                            UnitPrice = 344.61m,
+                            UnitsInStock = (short)80
                         },
                         new
                         {
                             ID = 111,
                             CategoryId = 1,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 703, DateTimeKind.Local).AddTicks(2597),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 664, DateTimeKind.Local).AddTicks(3343),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=27",
+                            ImagePath = "https://picsum.photos/640/480/?image=145",
                             IsActive = true,
-                            MasterId = new Guid("7f0a26c3-6a9e-4981-9fb4-1b0f93948cb1"),
-                            ProductName = "Pants",
+                            MasterId = new Guid("5fde1828-79ea-45f3-91d6-eb3d08e79be4"),
+                            ProductName = "Ball",
                             Status = 0,
                             SupplierId = 1,
-                            UnitPrice = 374.36m,
-                            UnitsInStock = (short)17
+                            UnitPrice = 362.38m,
+                            UnitsInStock = (short)46
                         },
                         new
                         {
                             ID = 201,
                             CategoryId = 2,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 703, DateTimeKind.Local).AddTicks(4106),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 664, DateTimeKind.Local).AddTicks(5194),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=653",
+                            ImagePath = "https://picsum.photos/640/480/?image=38",
                             IsActive = true,
-                            MasterId = new Guid("a6a6bc13-c3aa-42b2-a70e-c28aff17da3e"),
-                            ProductName = "Keyboard",
+                            MasterId = new Guid("84f8a882-4cad-441e-ac15-274f514d9c93"),
+                            ProductName = "Hat",
                             Status = 0,
                             SupplierId = 2,
-                            UnitPrice = 150.04m,
-                            UnitsInStock = (short)50
+                            UnitPrice = 317.85m,
+                            UnitsInStock = (short)31
                         },
                         new
                         {
                             ID = 202,
                             CategoryId = 2,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 703, DateTimeKind.Local).AddTicks(5604),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 664, DateTimeKind.Local).AddTicks(6789),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=927",
+                            ImagePath = "https://picsum.photos/640/480/?image=68",
                             IsActive = true,
-                            MasterId = new Guid("f107eeff-0f55-4720-ad0c-153e74c0ae27"),
-                            ProductName = "Pizza",
+                            MasterId = new Guid("77adaa18-5b38-4e1b-9a91-cb725c2d24e4"),
+                            ProductName = "Sausages",
                             Status = 0,
                             SupplierId = 2,
-                            UnitPrice = 594.92m,
-                            UnitsInStock = (short)56
+                            UnitPrice = 271.27m,
+                            UnitsInStock = (short)77
                         },
                         new
                         {
                             ID = 203,
                             CategoryId = 2,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 703, DateTimeKind.Local).AddTicks(7122),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 664, DateTimeKind.Local).AddTicks(8325),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=62",
+                            ImagePath = "https://picsum.photos/640/480/?image=782",
                             IsActive = true,
-                            MasterId = new Guid("347f9418-aba1-4a2b-8b6f-21e10a8e55da"),
-                            ProductName = "Ball",
+                            MasterId = new Guid("3d31a329-e774-4e9b-93c2-4b7cae53433f"),
+                            ProductName = "Chair",
                             Status = 0,
                             SupplierId = 2,
-                            UnitPrice = 585.96m,
-                            UnitsInStock = (short)31
+                            UnitPrice = 424.11m,
+                            UnitsInStock = (short)6
                         },
                         new
                         {
                             ID = 204,
                             CategoryId = 2,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 703, DateTimeKind.Local).AddTicks(8614),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 664, DateTimeKind.Local).AddTicks(9853),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=270",
+                            ImagePath = "https://picsum.photos/640/480/?image=314",
                             IsActive = true,
-                            MasterId = new Guid("bc2c2b84-bb0c-400e-97fa-e5eae4dc5bac"),
-                            ProductName = "Cheese",
+                            MasterId = new Guid("800c3df4-5590-4fa6-be7f-f75d97f6bee1"),
+                            ProductName = "Chicken",
                             Status = 0,
                             SupplierId = 2,
-                            UnitPrice = 117.88m,
-                            UnitsInStock = (short)60
+                            UnitPrice = 798.88m,
+                            UnitsInStock = (short)31
                         },
                         new
                         {
                             ID = 205,
                             CategoryId = 2,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 704, DateTimeKind.Local).AddTicks(117),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 665, DateTimeKind.Local).AddTicks(1432),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=82",
+                            ImagePath = "https://picsum.photos/640/480/?image=35",
                             IsActive = true,
-                            MasterId = new Guid("93a4c3b2-f4b9-42cf-85d0-57e1b25150b8"),
-                            ProductName = "Ball",
+                            MasterId = new Guid("ad98bb01-d52b-4ed6-a487-4e8943fb1936"),
+                            ProductName = "Table",
                             Status = 0,
                             SupplierId = 2,
-                            UnitPrice = 60.82m,
-                            UnitsInStock = (short)93
+                            UnitPrice = 579.27m,
+                            UnitsInStock = (short)41
                         },
                         new
                         {
                             ID = 206,
                             CategoryId = 2,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 704, DateTimeKind.Local).AddTicks(1616),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 665, DateTimeKind.Local).AddTicks(2958),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=468",
+                            ImagePath = "https://picsum.photos/640/480/?image=830",
                             IsActive = true,
-                            MasterId = new Guid("58eeb8a4-5b57-422e-b548-9f6b2868b071"),
-                            ProductName = "Shoes",
+                            MasterId = new Guid("51b8ea9c-b38d-459c-b4cf-ad84db21d547"),
+                            ProductName = "Car",
                             Status = 0,
                             SupplierId = 2,
-                            UnitPrice = 562.54m,
-                            UnitsInStock = (short)96
+                            UnitPrice = 696.47m,
+                            UnitsInStock = (short)78
                         },
                         new
                         {
                             ID = 207,
                             CategoryId = 2,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 704, DateTimeKind.Local).AddTicks(3135),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 665, DateTimeKind.Local).AddTicks(4481),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=357",
+                            ImagePath = "https://picsum.photos/640/480/?image=747",
                             IsActive = true,
-                            MasterId = new Guid("22e25bb9-8f06-4efb-9957-21ca191e1a41"),
-                            ProductName = "Bike",
+                            MasterId = new Guid("377ef9d9-9c6b-45d4-9d44-1523652f08b8"),
+                            ProductName = "Chips",
                             Status = 0,
                             SupplierId = 2,
-                            UnitPrice = 762.25m,
-                            UnitsInStock = (short)56
+                            UnitPrice = 106.08m,
+                            UnitsInStock = (short)100
                         },
                         new
                         {
                             ID = 208,
                             CategoryId = 2,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 704, DateTimeKind.Local).AddTicks(4629),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 665, DateTimeKind.Local).AddTicks(5977),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=1013",
+                            ImagePath = "https://picsum.photos/640/480/?image=111",
                             IsActive = true,
-                            MasterId = new Guid("55ee22ab-caf4-4bdd-bf38-0bb1c722f061"),
-                            ProductName = "Towels",
+                            MasterId = new Guid("1af9116e-8676-475c-95f0-651eb7d4bdd3"),
+                            ProductName = "Chicken",
                             Status = 0,
                             SupplierId = 2,
-                            UnitPrice = 500.65m,
-                            UnitsInStock = (short)82
+                            UnitPrice = 78.40m,
+                            UnitsInStock = (short)25
                         },
                         new
                         {
                             ID = 209,
                             CategoryId = 2,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 704, DateTimeKind.Local).AddTicks(6130),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 665, DateTimeKind.Local).AddTicks(7477),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=714",
+                            ImagePath = "https://picsum.photos/640/480/?image=862",
                             IsActive = true,
-                            MasterId = new Guid("f51595ad-cf0c-4cd6-a1eb-bdba8f52c777"),
-                            ProductName = "Fish",
+                            MasterId = new Guid("86c1dcca-d237-4c20-a4cb-30ef4f958233"),
+                            ProductName = "Mouse",
                             Status = 0,
                             SupplierId = 2,
-                            UnitPrice = 485.85m,
-                            UnitsInStock = (short)44
+                            UnitPrice = 791.58m,
+                            UnitsInStock = (short)38
                         },
                         new
                         {
                             ID = 210,
                             CategoryId = 2,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 704, DateTimeKind.Local).AddTicks(7621),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 665, DateTimeKind.Local).AddTicks(8958),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=141",
+                            ImagePath = "https://picsum.photos/640/480/?image=683",
                             IsActive = true,
-                            MasterId = new Guid("5e741c08-4dde-48a1-8b70-16664ad21278"),
-                            ProductName = "Towels",
+                            MasterId = new Guid("9f1d1323-dfc4-450e-a667-5521051e2e1f"),
+                            ProductName = "Car",
                             Status = 0,
                             SupplierId = 2,
-                            UnitPrice = 766.87m,
-                            UnitsInStock = (short)63
+                            UnitPrice = 823.51m,
+                            UnitsInStock = (short)19
                         },
                         new
                         {
                             ID = 211,
                             CategoryId = 2,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 704, DateTimeKind.Local).AddTicks(9134),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 666, DateTimeKind.Local).AddTicks(448),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=1062",
+                            ImagePath = "https://picsum.photos/640/480/?image=917",
                             IsActive = true,
-                            MasterId = new Guid("3558011b-83a7-4e81-9eb4-fe3409cd7049"),
-                            ProductName = "Car",
+                            MasterId = new Guid("a855f2d0-eac3-4530-9e4d-35bc63fedb22"),
+                            ProductName = "Ball",
                             Status = 0,
                             SupplierId = 2,
-                            UnitPrice = 694.48m,
-                            UnitsInStock = (short)44
+                            UnitPrice = 946.58m,
+                            UnitsInStock = (short)43
                         },
                         new
                         {
                             ID = 301,
                             CategoryId = 3,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 705, DateTimeKind.Local).AddTicks(626),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 666, DateTimeKind.Local).AddTicks(1920),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=44",
+                            ImagePath = "https://picsum.photos/640/480/?image=216",
                             IsActive = true,
-                            MasterId = new Guid("be8f2a5f-beb7-4d12-bb23-280a9f28270a"),
-                            ProductName = "Tuna",
+                            MasterId = new Guid("19fe2d70-a7cb-4e25-bd01-4e3c4c047af1"),
+                            ProductName = "Chicken",
                             Status = 0,
                             SupplierId = 3,
-                            UnitPrice = 235.56m,
-                            UnitsInStock = (short)10
+                            UnitPrice = 489.91m,
+                            UnitsInStock = (short)52
                         },
                         new
                         {
                             ID = 302,
                             CategoryId = 3,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 705, DateTimeKind.Local).AddTicks(2123),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 666, DateTimeKind.Local).AddTicks(3398),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=265",
+                            ImagePath = "https://picsum.photos/640/480/?image=633",
                             IsActive = true,
-                            MasterId = new Guid("2926cbad-df4b-4cc8-9de6-cddc6e84e0ad"),
-                            ProductName = "Fish",
+                            MasterId = new Guid("025b4c59-667e-4cb5-a7a2-568a84401b6e"),
+                            ProductName = "Gloves",
                             Status = 0,
                             SupplierId = 3,
-                            UnitPrice = 295.47m,
-                            UnitsInStock = (short)66
+                            UnitPrice = 961.31m,
+                            UnitsInStock = (short)12
                         },
                         new
                         {
                             ID = 303,
                             CategoryId = 3,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 705, DateTimeKind.Local).AddTicks(3734),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 666, DateTimeKind.Local).AddTicks(4894),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=470",
+                            ImagePath = "https://picsum.photos/640/480/?image=971",
                             IsActive = true,
-                            MasterId = new Guid("89fc964d-414d-440e-a843-f9ea8e6553ca"),
-                            ProductName = "Table",
+                            MasterId = new Guid("8dfec975-d3e5-4b4f-baca-028ecb0356c7"),
+                            ProductName = "Chair",
                             Status = 0,
                             SupplierId = 3,
-                            UnitPrice = 515.73m,
-                            UnitsInStock = (short)65
+                            UnitPrice = 762.82m,
+                            UnitsInStock = (short)7
                         },
                         new
                         {
                             ID = 304,
                             CategoryId = 3,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 705, DateTimeKind.Local).AddTicks(5232),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 666, DateTimeKind.Local).AddTicks(6371),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=941",
+                            ImagePath = "https://picsum.photos/640/480/?image=419",
                             IsActive = true,
-                            MasterId = new Guid("d07b3cec-5ec0-431f-9ce1-4a702974039d"),
-                            ProductName = "Computer",
+                            MasterId = new Guid("9b8cd0ba-65ef-4cdb-9c01-684a47fe223c"),
+                            ProductName = "Ball",
                             Status = 0,
                             SupplierId = 3,
-                            UnitPrice = 782.07m,
-                            UnitsInStock = (short)34
+                            UnitPrice = 748.94m,
+                            UnitsInStock = (short)76
                         },
                         new
                         {
                             ID = 305,
                             CategoryId = 3,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 705, DateTimeKind.Local).AddTicks(6730),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 666, DateTimeKind.Local).AddTicks(7841),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=476",
+                            ImagePath = "https://picsum.photos/640/480/?image=442",
                             IsActive = true,
-                            MasterId = new Guid("db19451d-c3f2-422c-9ef9-99932f11e76f"),
-                            ProductName = "Tuna",
+                            MasterId = new Guid("50db70e2-7c7b-4317-be54-a411dd2a0c12"),
+                            ProductName = "Car",
                             Status = 0,
                             SupplierId = 3,
-                            UnitPrice = 743.21m,
-                            UnitsInStock = (short)88
+                            UnitPrice = 635.50m,
+                            UnitsInStock = (short)71
                         },
                         new
                         {
                             ID = 306,
                             CategoryId = 3,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 705, DateTimeKind.Local).AddTicks(8222),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 666, DateTimeKind.Local).AddTicks(9334),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=328",
+                            ImagePath = "https://picsum.photos/640/480/?image=125",
                             IsActive = true,
-                            MasterId = new Guid("a9925d11-3a37-440d-be27-c34accc59088"),
-                            ProductName = "Chair",
+                            MasterId = new Guid("95234fe6-bfcc-4b14-9538-881792d500ce"),
+                            ProductName = "Keyboard",
                             Status = 0,
                             SupplierId = 3,
-                            UnitPrice = 904.62m,
-                            UnitsInStock = (short)20
+                            UnitPrice = 843.14m,
+                            UnitsInStock = (short)2
                         },
                         new
                         {
                             ID = 307,
                             CategoryId = 3,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 705, DateTimeKind.Local).AddTicks(9714),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 667, DateTimeKind.Local).AddTicks(808),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=337",
+                            ImagePath = "https://picsum.photos/640/480/?image=630",
                             IsActive = true,
-                            MasterId = new Guid("40e76ec7-e7e8-4a8e-8fa0-68e8f5004ab3"),
-                            ProductName = "Chips",
+                            MasterId = new Guid("5bdda9db-63d3-41dd-9798-74f673677318"),
+                            ProductName = "Soap",
                             Status = 0,
                             SupplierId = 3,
-                            UnitPrice = 697.07m,
-                            UnitsInStock = (short)52
+                            UnitPrice = 133.12m,
+                            UnitsInStock = (short)88
                         },
                         new
                         {
                             ID = 308,
                             CategoryId = 3,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 706, DateTimeKind.Local).AddTicks(1214),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 667, DateTimeKind.Local).AddTicks(2286),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=26",
+                            ImagePath = "https://picsum.photos/640/480/?image=38",
                             IsActive = true,
-                            MasterId = new Guid("6a937688-921b-48ce-a436-fdb2ad90c87b"),
-                            ProductName = "Tuna",
+                            MasterId = new Guid("6add8ef4-d8c4-4bd6-ad08-8f506d50c04f"),
+                            ProductName = "Table",
                             Status = 0,
                             SupplierId = 3,
-                            UnitPrice = 907.21m,
-                            UnitsInStock = (short)22
+                            UnitPrice = 39.56m,
+                            UnitsInStock = (short)61
                         },
                         new
                         {
                             ID = 309,
                             CategoryId = 3,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 706, DateTimeKind.Local).AddTicks(2714),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 667, DateTimeKind.Local).AddTicks(3776),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=878",
+                            ImagePath = "https://picsum.photos/640/480/?image=442",
                             IsActive = true,
-                            MasterId = new Guid("23424aa9-1644-493e-83b3-ebddd6e4c16a"),
-                            ProductName = "Shirt",
+                            MasterId = new Guid("06426ded-063e-493c-96d3-b0a53df790d8"),
+                            ProductName = "Table",
                             Status = 0,
                             SupplierId = 3,
-                            UnitPrice = 318.78m,
-                            UnitsInStock = (short)43
+                            UnitPrice = 125.43m,
+                            UnitsInStock = (short)59
                         },
                         new
                         {
                             ID = 310,
                             CategoryId = 3,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 706, DateTimeKind.Local).AddTicks(4209),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 667, DateTimeKind.Local).AddTicks(5395),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=641",
+                            ImagePath = "https://picsum.photos/640/480/?image=849",
                             IsActive = true,
-                            MasterId = new Guid("9dabf2dd-e365-4a81-b6b8-0fe587542553"),
-                            ProductName = "Car",
+                            MasterId = new Guid("53f26ef4-0e57-4a20-97be-86a41c9281c6"),
+                            ProductName = "Towels",
                             Status = 0,
                             SupplierId = 3,
-                            UnitPrice = 301.81m,
-                            UnitsInStock = (short)56
+                            UnitPrice = 253.16m,
+                            UnitsInStock = (short)52
                         },
                         new
                         {
                             ID = 311,
                             CategoryId = 3,
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 706, DateTimeKind.Local).AddTicks(5695),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 667, DateTimeKind.Local).AddTicks(6892),
                             CreatedIpAddress = "192.168.1.21",
-                            ImagePath = "https://picsum.photos/640/480/?image=92",
+                            ImagePath = "https://picsum.photos/640/480/?image=80",
                             IsActive = true,
-                            MasterId = new Guid("f1761efd-cafa-43a8-87f3-d6771a4e36a5"),
-                            ProductName = "Keyboard",
+                            MasterId = new Guid("fa1470e9-4791-42b7-b049-b413c6ba208e"),
+                            ProductName = "Tuna",
                             Status = 0,
                             SupplierId = 3,
-                            UnitPrice = 618.50m,
-                            UnitsInStock = (short)57
+                            UnitPrice = 508.28m,
+                            UnitsInStock = (short)18
                         });
                 });
 
@@ -827,17 +827,18 @@ namespace ECommerce.DAL.Migrations
 
                     b.Property<string>("Address")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasMaxLength(155)
+                        .HasColumnType("nvarchar(155)");
 
                     b.Property<string>("CompanyName")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasMaxLength(155)
+                        .HasColumnType("nvarchar(155)");
 
                     b.Property<string>("ContactName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
 
                     b.Property<string>("CreatedComputerName")
                         .IsRequired()
@@ -857,7 +858,8 @@ namespace ECommerce.DAL.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(13)
+                        .HasColumnType("nvarchar(13)");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -883,10 +885,10 @@ namespace ECommerce.DAL.Migrations
                             CompanyName = "Test Supplier1",
                             ContactName = "Test Contact1",
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 706, DateTimeKind.Local).AddTicks(7830),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 667, DateTimeKind.Local).AddTicks(9099),
                             CreatedIpAddress = "192.168.1.21",
                             IsActive = true,
-                            MasterId = new Guid("23e4ac01-725c-498f-900e-b0a5cc62cf57"),
+                            MasterId = new Guid("659354be-78d3-41f7-8d65-6129a434ed70"),
                             Status = 0
                         },
                         new
@@ -896,10 +898,10 @@ namespace ECommerce.DAL.Migrations
                             CompanyName = "Test Supplier2",
                             ContactName = "Test Contact2",
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 706, DateTimeKind.Local).AddTicks(9354),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 668, DateTimeKind.Local).AddTicks(618),
                             CreatedIpAddress = "192.168.1.21",
                             IsActive = true,
-                            MasterId = new Guid("fd3522d2-ab4b-44d6-b7a0-3b72d9b2e927"),
+                            MasterId = new Guid("db2d2e68-b01d-484d-888e-7818a5ac47e0"),
                             Status = 0
                         },
                         new
@@ -909,10 +911,10 @@ namespace ECommerce.DAL.Migrations
                             CompanyName = "TestSupplier3",
                             ContactName = "Test Contact3",
                             CreatedComputerName = "DESKTOP-22DN80G",
-                            CreatedDate = new DateTime(2024, 5, 27, 0, 35, 20, 707, DateTimeKind.Local).AddTicks(819),
+                            CreatedDate = new DateTime(2024, 5, 27, 2, 25, 45, 668, DateTimeKind.Local).AddTicks(2085),
                             CreatedIpAddress = "192.168.1.21",
                             IsActive = true,
-                            MasterId = new Guid("796123c3-267b-442b-becc-58c22bb80d70"),
+                            MasterId = new Guid("537e6f1d-8dd5-47ee-b3ad-5e9cc2283a2d"),
                             Status = 0
                         });
                 });

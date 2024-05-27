@@ -82,6 +82,11 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(Supplier supplier)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(supplier);
+            }
+
             string result = await _supplierService.UpdateSupplierAsync(supplier);
 
             TempData["result"] = result;
@@ -122,6 +127,35 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
                     Status = x.Status,
                 }).ToList();
             return View(suppliers);
+        }
+
+        [HttpGet]
+        public IActionResult Destroy(int id)
+        {
+            var deleted = _supplierService.GetSupplierById(id);
+
+            if (deleted != null)
+            {
+                return View(deleted);
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+
+        public async Task<IActionResult> Destroy(Supplier supplier)
+        {
+            if (supplier != null)
+            {
+                string result = await _supplierService.DestroySupplierAsync(supplier);
+
+                TempData["Result"] = result;
+
+                return RedirectToAction("Index", "Supplier");
+            }
+
+            return View(supplier);
         }
     }
 }

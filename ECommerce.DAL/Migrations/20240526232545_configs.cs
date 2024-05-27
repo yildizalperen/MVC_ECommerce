@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ECommerce.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class categoryproductsupplier : Migration
+    public partial class configs : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -62,7 +62,7 @@ namespace ECommerce.DAL.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CategoryName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    CategoryName = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     MasterId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -85,10 +85,10 @@ namespace ECommerce.DAL.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CompanyName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    ContactName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CompanyName = table.Column<string>(type: "nvarchar(155)", maxLength: 155, nullable: false),
+                    ContactName = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(155)", maxLength: 155, nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(13)", maxLength: 13, nullable: true),
                     MasterId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedComputerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -216,7 +216,7 @@ namespace ECommerce.DAL.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ProductName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    ProductName = table.Column<string>(type: "nvarchar(55)", maxLength: 55, nullable: false),
                     UnitsInStock = table.Column<short>(type: "smallint", nullable: false),
                     UnitPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     ImagePath = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -254,9 +254,9 @@ namespace ECommerce.DAL.Migrations
                 columns: new[] { "ID", "CategoryName", "CreatedComputerName", "CreatedDate", "CreatedIpAddress", "Description", "IsActive", "MasterId", "Status", "UpdatedComputerName", "UpdatedDate", "UpdatedIpAddress" },
                 values: new object[,]
                 {
-                    { 1, "Test Category 1", "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 882, DateTimeKind.Local).AddTicks(3305), "192.168.1.31", "Test Category 1 Description", true, new Guid("eaae78fd-5e98-4034-a168-7a8474732452"), 0, null, null, null },
-                    { 2, "Test Category 2", "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 882, DateTimeKind.Local).AddTicks(6074), "192.168.1.31", "Test Category 2 Description", true, new Guid("3731f474-725e-4b25-849a-ee1f7b79f925"), 0, null, null, null },
-                    { 3, "Test Category 3", "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 882, DateTimeKind.Local).AddTicks(7753), "192.168.1.31", "Test Category 3 Description", true, new Guid("c96be295-7d78-4565-a07d-299adeeb3939"), 0, null, null, null }
+                    { 1, "Test Category 1", "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 660, DateTimeKind.Local).AddTicks(8105), "192.168.1.21", "Test Category 1 Description", true, new Guid("0cb5bfdc-a8ed-4a0d-b59f-9be7d9be3a53"), 0, null, null, null },
+                    { 2, "Test Category 2", "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 661, DateTimeKind.Local).AddTicks(1053), "192.168.1.21", "Test Category 2 Description", true, new Guid("8bfcb228-58cf-4113-9d8f-613a8587b114"), 0, null, null, null },
+                    { 3, "Test Category 3", "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 661, DateTimeKind.Local).AddTicks(2689), "192.168.1.21", "Test Category 3 Description", true, new Guid("541f2144-0e45-44a1-80bb-e5ea9bd44a13"), 0, null, null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -264,9 +264,9 @@ namespace ECommerce.DAL.Migrations
                 columns: new[] { "ID", "Address", "CompanyName", "ContactName", "CreatedComputerName", "CreatedDate", "CreatedIpAddress", "IsActive", "MasterId", "PhoneNumber", "Status", "UpdatedComputerName", "UpdatedDate", "UpdatedIpAddress" },
                 values: new object[,]
                 {
-                    { 1, "Test Supplier Adress1", "Test Supplier1", "Test Contact1", "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 889, DateTimeKind.Local).AddTicks(5514), "192.168.1.31", true, new Guid("465f41d1-752d-42a9-81d3-b7965f984929"), null, 0, null, null, null },
-                    { 2, "Test Supplier Adress2", "Test Supplier2", "Test Contact2", "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 889, DateTimeKind.Local).AddTicks(7082), "192.168.1.31", true, new Guid("8c73097a-4756-46fe-913c-9c2e3fb45963"), null, 0, null, null, null },
-                    { 3, "TestSupplierAdress3", "TestSupplier3", "Test Contact3", "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 889, DateTimeKind.Local).AddTicks(8663), "192.168.1.31", true, new Guid("85578b48-006c-4b19-a1de-45ddf9a2b1db"), null, 0, null, null, null }
+                    { 1, "Test Supplier Adress1", "Test Supplier1", "Test Contact1", "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 667, DateTimeKind.Local).AddTicks(9099), "192.168.1.21", true, new Guid("659354be-78d3-41f7-8d65-6129a434ed70"), null, 0, null, null, null },
+                    { 2, "Test Supplier Adress2", "Test Supplier2", "Test Contact2", "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 668, DateTimeKind.Local).AddTicks(618), "192.168.1.21", true, new Guid("db2d2e68-b01d-484d-888e-7818a5ac47e0"), null, 0, null, null, null },
+                    { 3, "TestSupplierAdress3", "TestSupplier3", "Test Contact3", "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 668, DateTimeKind.Local).AddTicks(2085), "192.168.1.21", true, new Guid("537e6f1d-8dd5-47ee-b3ad-5e9cc2283a2d"), null, 0, null, null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -274,39 +274,39 @@ namespace ECommerce.DAL.Migrations
                 columns: new[] { "ID", "CategoryId", "CreatedComputerName", "CreatedDate", "CreatedIpAddress", "ImagePath", "IsActive", "MasterId", "ProductName", "Status", "SupplierId", "UnitPrice", "UnitsInStock", "UpdatedComputerName", "UpdatedDate", "UpdatedIpAddress" },
                 values: new object[,]
                 {
-                    { 101, 1, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 884, DateTimeKind.Local).AddTicks(2539), "192.168.1.31", "https://picsum.photos/640/480/?image=56", true, new Guid("9694f04c-a593-4a2a-be4a-a347764598ca"), "Computer", 0, 1, 849.30m, (short)6, null, null, null },
-                    { 102, 1, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 884, DateTimeKind.Local).AddTicks(4455), "192.168.1.31", "https://picsum.photos/640/480/?image=127", true, new Guid("d5f89680-bb8b-40a2-93cc-125c17d15c39"), "Chips", 0, 1, 531.07m, (short)33, null, null, null },
-                    { 103, 1, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 884, DateTimeKind.Local).AddTicks(6214), "192.168.1.31", "https://picsum.photos/640/480/?image=342", true, new Guid("7b89c4ad-d30f-405b-b876-41ad7e94f48c"), "Keyboard", 0, 1, 249.90m, (short)92, null, null, null },
-                    { 104, 1, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 884, DateTimeKind.Local).AddTicks(8496), "192.168.1.31", "https://picsum.photos/640/480/?image=672", true, new Guid("ad5fe80c-d018-4790-87c7-8fd612df3cfd"), "Cheese", 0, 1, 959.55m, (short)35, null, null, null },
-                    { 105, 1, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 885, DateTimeKind.Local).AddTicks(299), "192.168.1.31", "https://picsum.photos/640/480/?image=695", true, new Guid("2018c039-b1ae-47ae-85a5-62c7baaac877"), "Mouse", 0, 1, 364.15m, (short)87, null, null, null },
-                    { 106, 1, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 885, DateTimeKind.Local).AddTicks(1910), "192.168.1.31", "https://picsum.photos/640/480/?image=423", true, new Guid("9935587b-c569-400d-aa2f-e4aaea037cb2"), "Chair", 0, 1, 374.56m, (short)27, null, null, null },
-                    { 107, 1, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 885, DateTimeKind.Local).AddTicks(3479), "192.168.1.31", "https://picsum.photos/640/480/?image=539", true, new Guid("3f108704-7d5d-4943-8e3d-316779d7cf25"), "Hat", 0, 1, 272.85m, (short)75, null, null, null },
-                    { 108, 1, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 885, DateTimeKind.Local).AddTicks(5026), "192.168.1.31", "https://picsum.photos/640/480/?image=486", true, new Guid("48433d6b-6220-44e4-9c9a-2bd76634d1f8"), "Chicken", 0, 1, 502.66m, (short)40, null, null, null },
-                    { 109, 1, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 885, DateTimeKind.Local).AddTicks(6701), "192.168.1.31", "https://picsum.photos/640/480/?image=428", true, new Guid("efc76e78-dd06-439d-9054-abd354aaa7de"), "Chicken", 0, 1, 404.27m, (short)56, null, null, null },
-                    { 110, 1, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 885, DateTimeKind.Local).AddTicks(8251), "192.168.1.31", "https://picsum.photos/640/480/?image=549", true, new Guid("e94c1036-b834-49e2-846d-80b6c3c6f7a8"), "Car", 0, 1, 871.75m, (short)21, null, null, null },
-                    { 111, 1, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 885, DateTimeKind.Local).AddTicks(9791), "192.168.1.31", "https://picsum.photos/640/480/?image=900", true, new Guid("447faeeb-57af-4c8c-b7cc-6e9fdd86bd00"), "Salad", 0, 1, 573.54m, (short)97, null, null, null },
-                    { 201, 2, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 886, DateTimeKind.Local).AddTicks(1319), "192.168.1.31", "https://picsum.photos/640/480/?image=938", true, new Guid("e124cf8e-b9f5-4df2-87a7-20457be93212"), "Sausages", 0, 2, 188.32m, (short)64, null, null, null },
-                    { 202, 2, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 886, DateTimeKind.Local).AddTicks(2832), "192.168.1.31", "https://picsum.photos/640/480/?image=577", true, new Guid("42c9595c-8f65-4b0f-9b37-893b6c236d1b"), "Cheese", 0, 2, 264.05m, (short)10, null, null, null },
-                    { 203, 2, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 886, DateTimeKind.Local).AddTicks(4335), "192.168.1.31", "https://picsum.photos/640/480/?image=438", true, new Guid("423b6d92-97e8-4827-8a88-0eaf8483f029"), "Table", 0, 2, 15.03m, (short)80, null, null, null },
-                    { 204, 2, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 886, DateTimeKind.Local).AddTicks(5844), "192.168.1.31", "https://picsum.photos/640/480/?image=415", true, new Guid("ba7cbf5b-557a-4275-a229-f436cf75ba56"), "Towels", 0, 2, 102.08m, (short)40, null, null, null },
-                    { 205, 2, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 886, DateTimeKind.Local).AddTicks(7376), "192.168.1.31", "https://picsum.photos/640/480/?image=895", true, new Guid("f8831f82-bab1-4873-bb93-4487b88f3200"), "Bike", 0, 2, 183.33m, (short)88, null, null, null },
-                    { 206, 2, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 886, DateTimeKind.Local).AddTicks(8875), "192.168.1.31", "https://picsum.photos/640/480/?image=683", true, new Guid("5836a734-7455-4d34-a2ac-3353109b1607"), "Salad", 0, 2, 192.71m, (short)54, null, null, null },
-                    { 207, 2, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 887, DateTimeKind.Local).AddTicks(486), "192.168.1.31", "https://picsum.photos/640/480/?image=640", true, new Guid("a438ebf3-ee5f-442b-9b80-b5d973c41bcd"), "Fish", 0, 2, 146.08m, (short)28, null, null, null },
-                    { 208, 2, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 887, DateTimeKind.Local).AddTicks(2006), "192.168.1.31", "https://picsum.photos/640/480/?image=799", true, new Guid("241e9263-a0ac-41db-af73-9ca5e027b4d9"), "Salad", 0, 2, 354.90m, (short)1, null, null, null },
-                    { 209, 2, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 887, DateTimeKind.Local).AddTicks(3511), "192.168.1.31", "https://picsum.photos/640/480/?image=1083", true, new Guid("72e0f9e0-faef-4ff1-b9df-2b179d449952"), "Bacon", 0, 2, 621.35m, (short)15, null, null, null },
-                    { 210, 2, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 887, DateTimeKind.Local).AddTicks(5022), "192.168.1.31", "https://picsum.photos/640/480/?image=889", true, new Guid("758dda50-1a5f-4d5f-bb1c-7747f174195d"), "Shoes", 0, 2, 693.30m, (short)47, null, null, null },
-                    { 211, 2, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 887, DateTimeKind.Local).AddTicks(6543), "192.168.1.31", "https://picsum.photos/640/480/?image=137", true, new Guid("65986db2-715d-4319-ba37-787f9f448810"), "Table", 0, 2, 155.07m, (short)79, null, null, null },
-                    { 301, 3, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 887, DateTimeKind.Local).AddTicks(8054), "192.168.1.31", "https://picsum.photos/640/480/?image=929", true, new Guid("45961c16-e9d7-4572-93a2-a015e4ed4382"), "Chair", 0, 3, 929.76m, (short)28, null, null, null },
-                    { 302, 3, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 887, DateTimeKind.Local).AddTicks(9555), "192.168.1.31", "https://picsum.photos/640/480/?image=334", true, new Guid("1320c3b7-95ef-49e7-a3d1-89e9cc708c03"), "Ball", 0, 3, 358.64m, (short)64, null, null, null },
-                    { 303, 3, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 888, DateTimeKind.Local).AddTicks(1056), "192.168.1.31", "https://picsum.photos/640/480/?image=714", true, new Guid("fd59c6fc-c855-4fbf-af80-63989d7b7033"), "Pizza", 0, 3, 601.51m, (short)35, null, null, null },
-                    { 304, 3, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 888, DateTimeKind.Local).AddTicks(2558), "192.168.1.31", "https://picsum.photos/640/480/?image=78", true, new Guid("72887347-540a-481b-8dfd-47c809c48ce2"), "Sausages", 0, 3, 906.71m, (short)14, null, null, null },
-                    { 305, 3, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 888, DateTimeKind.Local).AddTicks(4050), "192.168.1.31", "https://picsum.photos/640/480/?image=789", true, new Guid("8fcd700b-1afb-40bd-b9f4-964ab3127d95"), "Pizza", 0, 3, 746.05m, (short)6, null, null, null },
-                    { 306, 3, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 888, DateTimeKind.Local).AddTicks(5532), "192.168.1.31", "https://picsum.photos/640/480/?image=713", true, new Guid("30b05575-9df2-4c4a-b3ad-732c0c862aaa"), "Shirt", 0, 3, 811.51m, (short)15, null, null, null },
-                    { 307, 3, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 888, DateTimeKind.Local).AddTicks(7059), "192.168.1.31", "https://picsum.photos/640/480/?image=10", true, new Guid("19e033fc-9bfc-43f9-bafe-4adccd2e4eff"), "Pizza", 0, 3, 404.93m, (short)1, null, null, null },
-                    { 308, 3, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 888, DateTimeKind.Local).AddTicks(8548), "192.168.1.31", "https://picsum.photos/640/480/?image=44", true, new Guid("7d2c95b8-3056-4dc4-8344-4bc97831fe14"), "Sausages", 0, 3, 496.87m, (short)33, null, null, null },
-                    { 309, 3, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 889, DateTimeKind.Local).AddTicks(32), "192.168.1.31", "https://picsum.photos/640/480/?image=572", true, new Guid("b05bb36a-5470-4f94-844b-ab694d7605a4"), "Hat", 0, 3, 512.76m, (short)71, null, null, null },
-                    { 310, 3, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 889, DateTimeKind.Local).AddTicks(1512), "192.168.1.31", "https://picsum.photos/640/480/?image=576", true, new Guid("87f74ae8-dce2-46ce-aea7-f405feef22ca"), "Sausages", 0, 3, 824.12m, (short)68, null, null, null },
-                    { 311, 3, "DESKTOP-22DN80G", new DateTime(2024, 5, 23, 15, 57, 56, 889, DateTimeKind.Local).AddTicks(3016), "192.168.1.31", "https://picsum.photos/640/480/?image=642", true, new Guid("3cb1d6e7-3d80-404a-a043-237cb9ec0984"), "Fish", 0, 3, 79.50m, (short)34, null, null, null }
+                    { 101, 1, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 662, DateTimeKind.Local).AddTicks(7582), "192.168.1.21", "https://picsum.photos/640/480/?image=896", true, new Guid("4d126777-000c-40ba-8a42-22fe1c360bd9"), "Hat", 0, 1, 638.70m, (short)91, null, null, null },
+                    { 102, 1, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 662, DateTimeKind.Local).AddTicks(9451), "192.168.1.21", "https://picsum.photos/640/480/?image=912", true, new Guid("ca2b9457-d191-42a1-ae6f-27da365e8a36"), "Shirt", 0, 1, 233.30m, (short)5, null, null, null },
+                    { 103, 1, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 663, DateTimeKind.Local).AddTicks(1075), "192.168.1.21", "https://picsum.photos/640/480/?image=191", true, new Guid("da0488a7-88ec-4e8e-8d67-85a99c3ddeb1"), "Table", 0, 1, 970.78m, (short)12, null, null, null },
+                    { 104, 1, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 663, DateTimeKind.Local).AddTicks(2656), "192.168.1.21", "https://picsum.photos/640/480/?image=902", true, new Guid("f5dcec2d-e116-4699-b5d2-6df985c092e5"), "Cheese", 0, 1, 461.36m, (short)41, null, null, null },
+                    { 105, 1, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 663, DateTimeKind.Local).AddTicks(4198), "192.168.1.21", "https://picsum.photos/640/480/?image=1012", true, new Guid("5fdcc11e-7590-413d-bb43-b8635ef28d59"), "Chips", 0, 1, 72.24m, (short)69, null, null, null },
+                    { 106, 1, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 663, DateTimeKind.Local).AddTicks(5774), "192.168.1.21", "https://picsum.photos/640/480/?image=1069", true, new Guid("ec42c6e8-00a0-487a-abb9-1c2c32de438f"), "Keyboard", 0, 1, 252.09m, (short)99, null, null, null },
+                    { 107, 1, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 663, DateTimeKind.Local).AddTicks(7298), "192.168.1.21", "https://picsum.photos/640/480/?image=253", true, new Guid("6036cc5e-bad5-4508-a599-80fe89d147f4"), "Bacon", 0, 1, 427.46m, (short)9, null, null, null },
+                    { 108, 1, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 663, DateTimeKind.Local).AddTicks(8826), "192.168.1.21", "https://picsum.photos/640/480/?image=790", true, new Guid("12edf0e9-d622-49f2-9b2b-576d42009557"), "Chips", 0, 1, 888.31m, (short)73, null, null, null },
+                    { 109, 1, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 664, DateTimeKind.Local).AddTicks(333), "192.168.1.21", "https://picsum.photos/640/480/?image=858", true, new Guid("1014c96c-09a5-4068-99f4-9a6158901835"), "Shoes", 0, 1, 310.44m, (short)39, null, null, null },
+                    { 110, 1, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 664, DateTimeKind.Local).AddTicks(1841), "192.168.1.21", "https://picsum.photos/640/480/?image=299", true, new Guid("2dcd09a0-a8cd-4d35-96c2-959b9038fd85"), "Shirt", 0, 1, 344.61m, (short)80, null, null, null },
+                    { 111, 1, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 664, DateTimeKind.Local).AddTicks(3343), "192.168.1.21", "https://picsum.photos/640/480/?image=145", true, new Guid("5fde1828-79ea-45f3-91d6-eb3d08e79be4"), "Ball", 0, 1, 362.38m, (short)46, null, null, null },
+                    { 201, 2, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 664, DateTimeKind.Local).AddTicks(5194), "192.168.1.21", "https://picsum.photos/640/480/?image=38", true, new Guid("84f8a882-4cad-441e-ac15-274f514d9c93"), "Hat", 0, 2, 317.85m, (short)31, null, null, null },
+                    { 202, 2, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 664, DateTimeKind.Local).AddTicks(6789), "192.168.1.21", "https://picsum.photos/640/480/?image=68", true, new Guid("77adaa18-5b38-4e1b-9a91-cb725c2d24e4"), "Sausages", 0, 2, 271.27m, (short)77, null, null, null },
+                    { 203, 2, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 664, DateTimeKind.Local).AddTicks(8325), "192.168.1.21", "https://picsum.photos/640/480/?image=782", true, new Guid("3d31a329-e774-4e9b-93c2-4b7cae53433f"), "Chair", 0, 2, 424.11m, (short)6, null, null, null },
+                    { 204, 2, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 664, DateTimeKind.Local).AddTicks(9853), "192.168.1.21", "https://picsum.photos/640/480/?image=314", true, new Guid("800c3df4-5590-4fa6-be7f-f75d97f6bee1"), "Chicken", 0, 2, 798.88m, (short)31, null, null, null },
+                    { 205, 2, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 665, DateTimeKind.Local).AddTicks(1432), "192.168.1.21", "https://picsum.photos/640/480/?image=35", true, new Guid("ad98bb01-d52b-4ed6-a487-4e8943fb1936"), "Table", 0, 2, 579.27m, (short)41, null, null, null },
+                    { 206, 2, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 665, DateTimeKind.Local).AddTicks(2958), "192.168.1.21", "https://picsum.photos/640/480/?image=830", true, new Guid("51b8ea9c-b38d-459c-b4cf-ad84db21d547"), "Car", 0, 2, 696.47m, (short)78, null, null, null },
+                    { 207, 2, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 665, DateTimeKind.Local).AddTicks(4481), "192.168.1.21", "https://picsum.photos/640/480/?image=747", true, new Guid("377ef9d9-9c6b-45d4-9d44-1523652f08b8"), "Chips", 0, 2, 106.08m, (short)100, null, null, null },
+                    { 208, 2, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 665, DateTimeKind.Local).AddTicks(5977), "192.168.1.21", "https://picsum.photos/640/480/?image=111", true, new Guid("1af9116e-8676-475c-95f0-651eb7d4bdd3"), "Chicken", 0, 2, 78.40m, (short)25, null, null, null },
+                    { 209, 2, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 665, DateTimeKind.Local).AddTicks(7477), "192.168.1.21", "https://picsum.photos/640/480/?image=862", true, new Guid("86c1dcca-d237-4c20-a4cb-30ef4f958233"), "Mouse", 0, 2, 791.58m, (short)38, null, null, null },
+                    { 210, 2, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 665, DateTimeKind.Local).AddTicks(8958), "192.168.1.21", "https://picsum.photos/640/480/?image=683", true, new Guid("9f1d1323-dfc4-450e-a667-5521051e2e1f"), "Car", 0, 2, 823.51m, (short)19, null, null, null },
+                    { 211, 2, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 666, DateTimeKind.Local).AddTicks(448), "192.168.1.21", "https://picsum.photos/640/480/?image=917", true, new Guid("a855f2d0-eac3-4530-9e4d-35bc63fedb22"), "Ball", 0, 2, 946.58m, (short)43, null, null, null },
+                    { 301, 3, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 666, DateTimeKind.Local).AddTicks(1920), "192.168.1.21", "https://picsum.photos/640/480/?image=216", true, new Guid("19fe2d70-a7cb-4e25-bd01-4e3c4c047af1"), "Chicken", 0, 3, 489.91m, (short)52, null, null, null },
+                    { 302, 3, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 666, DateTimeKind.Local).AddTicks(3398), "192.168.1.21", "https://picsum.photos/640/480/?image=633", true, new Guid("025b4c59-667e-4cb5-a7a2-568a84401b6e"), "Gloves", 0, 3, 961.31m, (short)12, null, null, null },
+                    { 303, 3, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 666, DateTimeKind.Local).AddTicks(4894), "192.168.1.21", "https://picsum.photos/640/480/?image=971", true, new Guid("8dfec975-d3e5-4b4f-baca-028ecb0356c7"), "Chair", 0, 3, 762.82m, (short)7, null, null, null },
+                    { 304, 3, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 666, DateTimeKind.Local).AddTicks(6371), "192.168.1.21", "https://picsum.photos/640/480/?image=419", true, new Guid("9b8cd0ba-65ef-4cdb-9c01-684a47fe223c"), "Ball", 0, 3, 748.94m, (short)76, null, null, null },
+                    { 305, 3, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 666, DateTimeKind.Local).AddTicks(7841), "192.168.1.21", "https://picsum.photos/640/480/?image=442", true, new Guid("50db70e2-7c7b-4317-be54-a411dd2a0c12"), "Car", 0, 3, 635.50m, (short)71, null, null, null },
+                    { 306, 3, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 666, DateTimeKind.Local).AddTicks(9334), "192.168.1.21", "https://picsum.photos/640/480/?image=125", true, new Guid("95234fe6-bfcc-4b14-9538-881792d500ce"), "Keyboard", 0, 3, 843.14m, (short)2, null, null, null },
+                    { 307, 3, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 667, DateTimeKind.Local).AddTicks(808), "192.168.1.21", "https://picsum.photos/640/480/?image=630", true, new Guid("5bdda9db-63d3-41dd-9798-74f673677318"), "Soap", 0, 3, 133.12m, (short)88, null, null, null },
+                    { 308, 3, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 667, DateTimeKind.Local).AddTicks(2286), "192.168.1.21", "https://picsum.photos/640/480/?image=38", true, new Guid("6add8ef4-d8c4-4bd6-ad08-8f506d50c04f"), "Table", 0, 3, 39.56m, (short)61, null, null, null },
+                    { 309, 3, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 667, DateTimeKind.Local).AddTicks(3776), "192.168.1.21", "https://picsum.photos/640/480/?image=442", true, new Guid("06426ded-063e-493c-96d3-b0a53df790d8"), "Table", 0, 3, 125.43m, (short)59, null, null, null },
+                    { 310, 3, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 667, DateTimeKind.Local).AddTicks(5395), "192.168.1.21", "https://picsum.photos/640/480/?image=849", true, new Guid("53f26ef4-0e57-4a20-97be-86a41c9281c6"), "Towels", 0, 3, 253.16m, (short)52, null, null, null },
+                    { 311, 3, "DESKTOP-22DN80G", new DateTime(2024, 5, 27, 2, 25, 45, 667, DateTimeKind.Local).AddTicks(6892), "192.168.1.21", "https://picsum.photos/640/480/?image=80", true, new Guid("fa1470e9-4791-42b7-b049-b413c6ba208e"), "Tuna", 0, 3, 508.28m, (short)18, null, null, null }
                 });
 
             migrationBuilder.CreateIndex(

@@ -10,8 +10,7 @@ namespace ECommerce.DAL.Configurations
         {
             //Properties
             builder.Property(x => x.Description).HasMaxLength(255);
-            builder.Property(x => x.CategoryName).HasMaxLength(255);
-
+            builder.Property(x => x.CategoryName).HasMaxLength(40);
 
             //HasData: veritabanında category tablosu oluşturulurken beraberinde varsayılan datalar ile birlikte oluşturulmasını sağlar.
             builder.HasData(SeedCategoryData());

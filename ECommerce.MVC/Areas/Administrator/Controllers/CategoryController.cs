@@ -80,6 +80,10 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(Category category)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(category);
+            }
 
             string result = await _categoryService.UpdateCategoryAsync(category);
 
@@ -119,6 +123,35 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
                     Status = x.Status
                 }).ToList();
             return View(categories);
+        }
+
+        [HttpGet]
+        public IActionResult Destroy(int id)
+        {
+            var deleted = _categoryService.GetCategoryById(id);
+
+            if (deleted != null)
+            {
+                return View(deleted);
+            }
+            
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+
+        public async Task<IActionResult> Destroy (Category category)
+        {
+            if (category != null)
+            {
+                string result = await _categoryService.DestroyCategoryAsync(category);
+
+                TempData["Result"] = result;
+
+                return RedirectToAction("Index", "Category");
+            }
+            
+            return View(category);
         }
 
     }

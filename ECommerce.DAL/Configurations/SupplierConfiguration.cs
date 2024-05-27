@@ -11,9 +11,13 @@ namespace ECommerce.DAL.Configurations
             //Property Customize
             builder.Property(x => x.CompanyName).IsRequired(true);
             builder.Property(x => x.Address).IsRequired(true);
+            builder.Property(x => x.ContactName).IsRequired(true);
             builder.Property(x => x.PhoneNumber).IsRequired(false);
-            builder.Property(x => x.CompanyName).HasMaxLength(255);
-            builder.Property(x => x.Address).HasMaxLength(255);
+            builder.Property(x => x.CompanyName).HasMaxLength(155);
+            builder.Property(x => x.Address).HasMaxLength(155);
+            builder.Property(x => x.PhoneNumber).HasMaxLength(13);
+            builder.Property(x => x.ContactName).HasMaxLength(40);
+           
 
             //HasData
             builder.HasData(SeedSupplierData());

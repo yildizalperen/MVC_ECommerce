@@ -135,6 +135,7 @@ namespace ECommerce.BLL.Repositories.Concretes
         public async Task<string> Update(T entity)
         {
             string result = "";
+            int result2;
 
             switch (entity.Status)
             {
@@ -143,21 +144,44 @@ namespace ECommerce.BLL.Repositories.Concretes
 
                     entity.Status = ECommerce.Models.Enums.DataStatus.UPDATED;
                     _entities.Entry(entity).State = EntityState.Modified;
-                    _context.SaveChanges();
-                    result = "Veri Güncellendi";
+                    result2 = await _context.SaveChangesAsync();
+                    if (result2 > 0)
+                    {
+                        result = "Veri Güncellendi";
+                    }
+                    else
+                    {
+                        result = "Bir Hata Oluştu!";
+                    }
                     break;
                 case ECommerce.Models.Enums.DataStatus.DELETED:
 
                     entity.Status = ECommerce.Models.Enums.DataStatus.DELETED;
                     _entities.Entry(entity).State = EntityState.Modified;
                     _context.SaveChanges();
-                    result = "Veri Silindi";
+                    result2 = await _context.SaveChangesAsync();
+                    if (result2 > 0)
+                    {
+                        result = "Veri Silindi";
+                    }
+                    else
+                    {
+                        result = "Bir Hata Oluştu!";
+                    }
                     break;
                 case ECommerce.Models.Enums.DataStatus.INSERTED:
                     entity.Status = ECommerce.Models.Enums.DataStatus.UPDATED;
                     _entities.Entry(entity).State = EntityState.Modified;
                     _context.SaveChanges();
-                    result = "Veri Güncellendi";
+                    result2 = await _context.SaveChangesAsync();
+                    if (result2 > 0)
+                    {
+                        result = "Veri Güncellendi";
+                    }
+                    else
+                    {
+                        result = "Bir Hata Oluştu!";
+                    }
                     break;
 
             }

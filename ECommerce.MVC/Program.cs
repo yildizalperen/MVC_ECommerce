@@ -14,7 +14,7 @@ builder.Services.AddControllersWithViews();
 //DependencyInjections
 
 //AddDbContext
-builder.Services.AddDbContext<ECommerceContext>(options => options.UseSqlServer("server=DESKTOP-22DN80G;database=MVC_ECommerce;Trusted_Connection=True;TrustServerCertificate=true"));
+builder.Services.AddDbContext<ECommerceContext>(options => options.UseSqlServer("Server=KDK-101-PC09-YZ;Database=MVC_ECommerce-P;Trusted_Connection=True;TrustServerCertificate=True"));
 
 //Repository Services
 builder.Services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));

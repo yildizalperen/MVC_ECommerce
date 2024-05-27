@@ -48,6 +48,11 @@ namespace ECommerce.BLL.Services.Concretes
             return _productRepository.GetPassives();
         }
 
+        public List<Product> GetProductByCategoryId(int categoryID)
+        {
+            return _productRepository.GetAll().Where(x=>x.CategoryId==categoryID).ToList();
+        }
+
         public Product GetProductById(int id)
         {
             return _productRepository.GetById(id);

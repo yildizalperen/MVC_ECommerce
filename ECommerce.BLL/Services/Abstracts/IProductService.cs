@@ -17,5 +17,7 @@ namespace ECommerce.BLL.Services.Abstracts
         IEnumerable<Product> GetActiveProducts();
         IEnumerable<Product> GetPassiveProducts();
         Task<string> DestroyProductAsync(Product product);
+
+        List<Product> GetProductByCategoryId(int categoryID);
     }
 }

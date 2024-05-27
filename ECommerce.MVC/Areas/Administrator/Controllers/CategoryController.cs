@@ -71,7 +71,7 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
         public IActionResult Update(int id)
         {
             var updated = _categoryService.GetCategoryById(id);
-            
+
             if (updated != null)
             {
                 return View(updated);
@@ -143,13 +143,13 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
             {
                 return View(deleted);
             }
-            
+
             return RedirectToAction("Index", "Home");
         }
 
         //Post: Delete data from database (Destroy Data)
         [HttpPost]
-        public async Task<IActionResult> Destroy (Category category)
+        public async Task<IActionResult> Destroy(Category category)
         {
             if (category != null)
             {
@@ -159,26 +159,31 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
 
                 return RedirectToAction("Index", "Category");
             }
-            
+
             return View(category);
         }
 
         public IActionResult Details(int id)
         {
-            var category = _categoryService.GetCategoryById(id);
-            var products = new List<ProductViewModelAdmin>();
+            var products = _productService.GetProductByCategoryId(id);
 
-            products = category.Products.Where(x=>x.CategoryId==id).Select(x => new ProductViewModelAdmin(){
-            Id = x.ID,
-            UnitPrice = x.UnitPrice,
-            UnitsInStock = x.UnitsInStock,
-            ImagePath = x.ImagePath,
-            Status = x.Status,
-            IsActive = x.IsActive,
-            
-            }).ToList();
+            if (products.Count > 0)
+            {
+                var productsMV = products.Select(x => new ProductViewModelAdmin()
+                {
+                    Id = x.ID,
+                    ProductName = x.ProductName,
+                    UnitPrice = x.UnitPrice,
+                    UnitsInStock = x.UnitsInStock,
+                    ImagePath = x.ImagePath,
+                    Status = x.Status,
+                    IsActive = x.IsActive
+                });
 
-            return View(products);
+                return View(productsMV);
+            }
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

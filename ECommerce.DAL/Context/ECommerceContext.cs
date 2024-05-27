@@ -23,7 +23,7 @@ namespace ECommerce.DAL.Context
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
         //    if (!optionsBuilder.IsConfigured)
-        //        optionsBuilder.UseSqlServer("server=DESKTOP-22DN80G;database=MVC_ECommerce;Trusted_Connection=True;TrustServerCertificate=true");
+        //        optionsBuilder.UseSqlServer("Server=KDK-101-PC09-YZ;Database=MVC_ECommerce-P;Trusted_Connection=True;TrustServerCertificate=True");
         //    base.OnConfiguring(optionsBuilder);
         //}
 

@@ -166,7 +166,7 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
         public IActionResult Details(int id)
         {
             var category = _categoryService.GetCategoryById(id);
-            List<ProductViewModelAdmin> products = new List<ProductViewModelAdmin>();
+            var products = new List<ProductViewModelAdmin>();
 
             products = category.Products.Where(x=>x.CategoryId==id).Select(x => new ProductViewModelAdmin(){
             Id = x.ID,

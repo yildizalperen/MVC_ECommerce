@@ -13,11 +13,13 @@ namespace ECommerce.MVC.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
 
-        public HomeController(ILogger<HomeController> logger, UserManager<AppUser> userManager)
+        public HomeController(ILogger<HomeController> logger, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
         {
             _logger = logger;
             _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         public IActionResult Index()
@@ -25,6 +27,7 @@ namespace ECommerce.MVC.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Register()
         {
             return View();
@@ -45,9 +48,9 @@ namespace ECommerce.MVC.Controllers
 
                 if (result.Succeeded)
                 {
-                    var emailToken =  _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    var emailToken =await _userManager.GenerateEmailConfirmationTokenAsync(user);
 
-                    var encodeToken = HttpUtility.UrlEncode(emailToken.Result);
+                    var encodeToken = HttpUtility.UrlEncode(emailToken);
 
                     string confirmationLink = Url.Action("Activation", "Home", new { id = user.Id, token = encodeToken},Request.Scheme);
 
@@ -77,10 +80,32 @@ namespace ECommerce.MVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(LoginViewModel loginVM)
+        public async Task<IActionResult> Login(LoginViewModel loginVM)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByEmailAsync(loginVM.Email);
+
+                if(user != null)
+                {
+                    var result = await _signInManager.PasswordSignInAsync(user, loginVM.Password, loginVM.Remember, false);
+
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                }
+
+                return View();
+            }
+            else
+            {
+                return View();
+            }
+            
         }
+
+        
 
         [HttpGet]
         public IActionResult Logout()
@@ -97,7 +122,10 @@ namespace ECommerce.MVC.Controllers
 
                 if (existUser != null)
                 {
-                    var result = await _userManager.ConfirmEmailAsync(existUser,token);
+
+                    var decodeToken = HttpUtility.UrlDecode(token);
+
+                    var result = await _userManager.ConfirmEmailAsync(existUser,decodeToken);
                     if (result.Succeeded)
                     {
                         TempData["Success"] = "hesabınız aktif hale getirildi.";

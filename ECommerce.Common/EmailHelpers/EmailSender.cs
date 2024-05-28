@@ -21,7 +21,7 @@ namespace ECommerce.Common.EmailHelpers
 
             //SmtpClient
             SmtpClient smtpClient = new SmtpClient();
-            smtpClient.Credentials = new NetworkCredential("yzl3172@outlook.com", "YzlKadıkoy--");
+            smtpClient.Credentials = new NetworkCredential("yzl3172@outlook.com", "YzlKadikoy--");
             smtpClient.Host = "smtp-mail.outlook.com";
             smtpClient.Port = 587;
             smtpClient.EnableSsl = true;

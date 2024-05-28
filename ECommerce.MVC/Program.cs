@@ -12,6 +12,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+//Cookie Configuration
+builder.Services.ConfigureApplicationCookie(cookie =>
+{
+    cookie.LoginPath = new PathString("/Home/Login");
+    cookie.AccessDeniedPath = new PathString("/Home/Denied");
+    cookie.Cookie = new CookieBuilder { Name = "ECommerceUserCookie" };
+    cookie.SlidingExpiration = true;
+    cookie.ExpireTimeSpan = TimeSpan.FromMinutes(1);
+});
+
 
 //DependencyInjections
 

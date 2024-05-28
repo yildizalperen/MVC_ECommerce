@@ -5,6 +5,7 @@ using ECommerce.MVC.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Web;
 
 namespace ECommerce.MVC.Controllers
 {
@@ -46,9 +47,9 @@ namespace ECommerce.MVC.Controllers
                 {
                     var emailToken =  _userManager.GenerateEmailConfirmationTokenAsync(user);
 
-                    
+                    var encodeToken = HttpUtility.UrlEncode(emailToken.Result);
 
-                    string confirmationLink = Url.Action("Activation", "Home", new { id = user.Id, token = emailToken.Result },Request.Scheme);
+                    string confirmationLink = Url.Action("Activation", "Home", new { id = user.Id, token = encodeToken},Request.Scheme);
 
                     string body = $"Merhaba {registerVM.Username} aramıza Hoşgeldiniz! İgili linke tıklayarak hesabınızı aktif hale getirebilirsiniz. {confirmationLink}";
 

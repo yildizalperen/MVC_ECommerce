@@ -44,7 +44,11 @@ namespace ECommerce.MVC.Controllers
 
                 if (result.Succeeded)
                 {
-                    string body = $"Merhaba {registerVM.Username} aramıza Hoşgeldiniz! İgili linke tıklayarak hesabınızı aktif hale getirebilirsiniz. https://localhost:7206/Home/Activation/TOKEN";
+                    var emailToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+
+                    string body = $"Merhaba {registerVM.Username} aramıza Hoşgeldiniz! İgili linke tıklayarak hesabınızı aktif hale getirebilirsiniz. https://localhost:7206/Home/Activation/id/{emailToken}";
+                    
+
 
                     //Todo: Konfirmasyon maili gönderilecek.
                     EmailSender.SendEmail(registerVM.Email, "Aktivasyon", body);

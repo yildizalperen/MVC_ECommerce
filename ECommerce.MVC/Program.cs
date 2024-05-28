@@ -26,7 +26,7 @@ builder.Services.ConfigureApplicationCookie(cookie =>
 //DependencyInjections
 
 //AddDbContext
-builder.Services.AddDbContext<ECommerceContext>(options => options.UseSqlServer("Server=KDK-101-PC09-YZ;Database=MVC_ECommerce-P;Trusted_Connection=True;TrustServerCertificate=True",b => b.MigrationsAssembly("ECommerce.MVC")));
+builder.Services.AddDbContext<ECommerceContext>(options => options.UseSqlServer("server=DESKTOP-22DN80G;database=MVC_ECommerce;Trusted_Connection=True;TrustServerCertificate=true", b => b.MigrationsAssembly("ECommerce.MVC")));
 
 //Repository Services
 builder.Services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
@@ -49,11 +49,11 @@ builder.Services.AddIdentity<AppUser, AppUserRole>()
 
 builder.Services.Configure<IdentityOptions>(x =>
 {
-    x.Password.RequireDigit = true;
-    x.Password.RequireNonAlphanumeric = true;
-    x.Password.RequireUppercase = true;
-    x.Password.RequireLowercase = true;
-    x.Password.RequiredLength = 8;
+    x.Password.RequireDigit = true; //en az 1 rakam zorunluluğu
+    x.Password.RequireNonAlphanumeric = true; //en az 1 sayı ve numara hariç karakter zorunluluğu
+    x.Password.RequireUppercase = true; //en az 1 büyük harf zorunluluğu
+    x.Password.RequireLowercase = true; //en az 1 küçük harf zorunluluğu
+    x.Password.RequiredLength = 8; //Minimum şifre uzunluğu
 });
 
 

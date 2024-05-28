@@ -37,11 +37,11 @@ builder.Services.AddIdentity<AppUser, AppUserRole>().AddEntityFrameworkStores<EC
 
 builder.Services.Configure<IdentityOptions>(x =>
 {
-    x.Password.RequireDigit = false;
+    x.Password.RequireDigit = true;
     x.Password.RequiredLength = 12;
-    x.Password.RequireNonAlphanumeric = false;
-    x.Password.RequireUppercase = false;
-    x.Password.RequireLowercase = false;
+    x.Password.RequireNonAlphanumeric = true;
+    x.Password.RequireUppercase = true;
+    x.Password.RequireLowercase = true;
 });
 
 

@@ -46,7 +46,7 @@ namespace ECommerce.MVC.Controllers
                 {
                     var emailToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
 
-                    string body = $"Merhaba {registerVM.Username} aramıza Hoşgeldiniz! İgili linke tıklayarak hesabınızı aktif hale getirebilirsiniz. https://localhost:7206/Home/Activation/id/{emailToken}";
+                    string body = $"Merhaba {registerVM.Username} aramıza Hoşgeldiniz! İgili linke tıklayarak hesabınızı aktif hale getirebilirsiniz. https://localhost:7206/Home/Activation/{user.Id}/{emailToken}";
                     
 
 
@@ -83,7 +83,11 @@ namespace ECommerce.MVC.Controllers
             return View();
         }
 
-
+        public IActionResult Activation(string id, string token)
+        {
+            //kullanıcı konfirmasyon işlemi
+            return View();
+        }
 
 
 

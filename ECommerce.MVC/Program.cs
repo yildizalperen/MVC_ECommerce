@@ -3,6 +3,8 @@ using ECommerce.BLL.Repositories.Concretes;
 using ECommerce.BLL.Services.Abstracts;
 using ECommerce.BLL.Services.Concretes;
 using ECommerce.DAL.Context;
+using ECommerce.Models.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,15 +25,24 @@ builder.Services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
 
 //CategoryService
 builder.Services.AddScoped<ICategoryService, CategoryService>();
-
 //ProductService
 builder.Services.AddScoped<IProductService, ProductService>();
-
 //SupplierService
 builder.Services.AddScoped<ISupplierService, SupplierSerivce>();
-
 //OrderService
 builder.Services.AddScoped<IOrderService, OrderService>();
+
+//User Manager
+builder.Services.AddIdentity<AppUser, AppUserRole>().AddEntityFrameworkStores<ECommerceContext>();
+
+builder.Services.Configure<IdentityOptions>(x =>
+{
+    x.Password.RequireDigit = false;
+    x.Password.RequiredLength = 12;
+    x.Password.RequireNonAlphanumeric = false;
+    x.Password.RequireUppercase = false;
+    x.Password.RequireLowercase = false;
+});
 
 
 var app = builder.Build();
@@ -49,7 +60,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
+app.UseAuthorization(); //Yetkilendirme
+app.UseAuthentication(); //Kimlik yönetimi
 
 app.UseEndpoints(endpoints =>
 {

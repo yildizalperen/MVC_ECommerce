@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ECommerce.MVC.Migrations
 {
     [DbContext(typeof(ECommerceContext))]
-    [Migration("20240527091343_created")]
-    partial class created
+    [Migration("20240528083759_appUser")]
+    partial class appUser
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,10 +35,9 @@ namespace ECommerce.MVC.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("BirthDate")
+                    b.Property<DateTime?>("BirthDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -52,7 +51,7 @@ namespace ECommerce.MVC.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<int>("Gender")
+                    b.Property<int?>("Gender")
                         .HasColumnType("int");
 
                     b.Property<bool>("LockoutEnabled")
@@ -190,11 +189,11 @@ namespace ECommerce.MVC.Migrations
                             ID = 1,
                             CategoryName = "Test Category 1",
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 719, DateTimeKind.Local).AddTicks(2538),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 305, DateTimeKind.Local).AddTicks(2513),
                             CreatedIpAddress = "10.3.21.52",
                             Description = "Test Category 1 Description",
                             IsActive = true,
-                            MasterId = new Guid("be70ad7e-4d03-42b6-a537-4d673b7daf09"),
+                            MasterId = new Guid("77aeefb2-03a0-454d-82f0-d80b14a9763e"),
                             Status = 0
                         },
                         new
@@ -202,11 +201,11 @@ namespace ECommerce.MVC.Migrations
                             ID = 2,
                             CategoryName = "Test Category 2",
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 719, DateTimeKind.Local).AddTicks(6976),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 305, DateTimeKind.Local).AddTicks(6737),
                             CreatedIpAddress = "10.3.21.52",
                             Description = "Test Category 2 Description",
                             IsActive = true,
-                            MasterId = new Guid("9d74b845-6972-4ad8-a773-0ed2c19bff29"),
+                            MasterId = new Guid("898ce7c9-d5fe-4025-b57b-0255d3dae02d"),
                             Status = 0
                         },
                         new
@@ -214,11 +213,11 @@ namespace ECommerce.MVC.Migrations
                             ID = 3,
                             CategoryName = "Test Category 3",
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 719, DateTimeKind.Local).AddTicks(9674),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 305, DateTimeKind.Local).AddTicks(9108),
                             CreatedIpAddress = "10.3.21.52",
                             Description = "Test Category 3 Description",
                             IsActive = true,
-                            MasterId = new Guid("034b3f36-d6f4-4623-aa7c-5ab10c3a5bc4"),
+                            MasterId = new Guid("b74d21d8-19a5-4e08-881d-58503f0c1d49"),
                             Status = 0
                         });
                 });
@@ -377,528 +376,528 @@ namespace ECommerce.MVC.Migrations
                             ID = 101,
                             CategoryId = 1,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 723, DateTimeKind.Local).AddTicks(7656),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 309, DateTimeKind.Local).AddTicks(5320),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=164",
+                            ImagePath = "https://picsum.photos/640/480/?image=944",
                             IsActive = true,
-                            MasterId = new Guid("2f0ccf35-470a-499e-b52c-f1b83431bbc1"),
-                            ProductName = "Chicken",
+                            MasterId = new Guid("1f2a2c6b-33d2-45e2-ba94-9400e135c6a0"),
+                            ProductName = "Table",
                             Status = 0,
                             SupplierId = 1,
-                            UnitPrice = 886.27m,
-                            UnitsInStock = (short)59
+                            UnitPrice = 179.37m,
+                            UnitsInStock = (short)75
                         },
                         new
                         {
                             ID = 102,
                             CategoryId = 1,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 724, DateTimeKind.Local).AddTicks(2302),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 309, DateTimeKind.Local).AddTicks(9761),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=1026",
+                            ImagePath = "https://picsum.photos/640/480/?image=22",
                             IsActive = true,
-                            MasterId = new Guid("d0738ef6-0bdd-4609-9078-97578fdfe139"),
-                            ProductName = "Shirt",
+                            MasterId = new Guid("7ebd304c-4eb9-4841-acf5-f4cea4a5077f"),
+                            ProductName = "Tuna",
                             Status = 0,
                             SupplierId = 1,
-                            UnitPrice = 478.50m,
-                            UnitsInStock = (short)88
+                            UnitPrice = 62.21m,
+                            UnitsInStock = (short)56
                         },
                         new
                         {
                             ID = 103,
                             CategoryId = 1,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 724, DateTimeKind.Local).AddTicks(4979),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 310, DateTimeKind.Local).AddTicks(2417),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=955",
+                            ImagePath = "https://picsum.photos/640/480/?image=250",
                             IsActive = true,
-                            MasterId = new Guid("4c33a694-3b66-49ea-880c-e260a3fa057a"),
-                            ProductName = "Chair",
+                            MasterId = new Guid("f64d8dc8-b763-4fe7-9339-a2b5e05ca143"),
+                            ProductName = "Towels",
                             Status = 0,
                             SupplierId = 1,
-                            UnitPrice = 826.22m,
-                            UnitsInStock = (short)45
+                            UnitPrice = 472.79m,
+                            UnitsInStock = (short)53
                         },
                         new
                         {
                             ID = 104,
                             CategoryId = 1,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 724, DateTimeKind.Local).AddTicks(7453),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 310, DateTimeKind.Local).AddTicks(4808),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=836",
+                            ImagePath = "https://picsum.photos/640/480/?image=344",
                             IsActive = true,
-                            MasterId = new Guid("9fa0059e-80b6-4bda-b469-48d4a1557a2c"),
-                            ProductName = "Tuna",
+                            MasterId = new Guid("2449e464-c27e-4b22-b5e2-2d8e0f4ea88b"),
+                            ProductName = "Computer",
                             Status = 0,
                             SupplierId = 1,
-                            UnitPrice = 249.84m,
-                            UnitsInStock = (short)55
+                            UnitPrice = 911.64m,
+                            UnitsInStock = (short)95
                         },
                         new
                         {
                             ID = 105,
                             CategoryId = 1,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 725, DateTimeKind.Local).AddTicks(117),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 310, DateTimeKind.Local).AddTicks(7137),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=530",
+                            ImagePath = "https://picsum.photos/640/480/?image=386",
                             IsActive = true,
-                            MasterId = new Guid("65938660-8ee5-42cc-a507-2f0e13fcfb2b"),
-                            ProductName = "Car",
+                            MasterId = new Guid("27ef6b24-d12e-4a6d-9599-eb87f54d9cd5"),
+                            ProductName = "Table",
                             Status = 0,
                             SupplierId = 1,
-                            UnitPrice = 938.93m,
-                            UnitsInStock = (short)48
+                            UnitPrice = 799.31m,
+                            UnitsInStock = (short)19
                         },
                         new
                         {
                             ID = 106,
                             CategoryId = 1,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 725, DateTimeKind.Local).AddTicks(2445),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 310, DateTimeKind.Local).AddTicks(9474),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=844",
+                            ImagePath = "https://picsum.photos/640/480/?image=487",
                             IsActive = true,
-                            MasterId = new Guid("9de3e20e-2e66-4d18-9acc-410fb7e029d0"),
-                            ProductName = "Towels",
+                            MasterId = new Guid("78367f66-de6f-4f2b-82f3-ae3be3978d6e"),
+                            ProductName = "Tuna",
                             Status = 0,
                             SupplierId = 1,
-                            UnitPrice = 162.69m,
-                            UnitsInStock = (short)27
+                            UnitPrice = 919.99m,
+                            UnitsInStock = (short)21
                         },
                         new
                         {
                             ID = 107,
                             CategoryId = 1,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 725, DateTimeKind.Local).AddTicks(4756),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 311, DateTimeKind.Local).AddTicks(1897),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=528",
+                            ImagePath = "https://picsum.photos/640/480/?image=350",
                             IsActive = true,
-                            MasterId = new Guid("cac9de29-4e08-4024-bcf9-b69d4c69e372"),
-                            ProductName = "Keyboard",
+                            MasterId = new Guid("a96a39d0-42eb-4292-aff4-1c6974ff6f06"),
+                            ProductName = "Pants",
                             Status = 0,
                             SupplierId = 1,
-                            UnitPrice = 833.33m,
-                            UnitsInStock = (short)54
+                            UnitPrice = 710.11m,
+                            UnitsInStock = (short)15
                         },
                         new
                         {
                             ID = 108,
                             CategoryId = 1,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 725, DateTimeKind.Local).AddTicks(7000),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 311, DateTimeKind.Local).AddTicks(4303),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=530",
+                            ImagePath = "https://picsum.photos/640/480/?image=170",
                             IsActive = true,
-                            MasterId = new Guid("6160bc5d-4a46-46d2-b491-8b93309eee17"),
-                            ProductName = "Pants",
+                            MasterId = new Guid("b047acc4-948b-4b30-b1a9-4238a4721bdb"),
+                            ProductName = "Gloves",
                             Status = 0,
                             SupplierId = 1,
-                            UnitPrice = 554.08m,
-                            UnitsInStock = (short)59
+                            UnitPrice = 499.95m,
+                            UnitsInStock = (short)64
                         },
                         new
                         {
                             ID = 109,
                             CategoryId = 1,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 725, DateTimeKind.Local).AddTicks(9338),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 311, DateTimeKind.Local).AddTicks(6687),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=846",
+                            ImagePath = "https://picsum.photos/640/480/?image=87",
                             IsActive = true,
-                            MasterId = new Guid("b1f4e4ab-1b19-4ca6-aedc-a12208f70cd6"),
-                            ProductName = "Sausages",
+                            MasterId = new Guid("17f58485-858f-4122-99e5-dfdfc2e6175b"),
+                            ProductName = "Chair",
                             Status = 0,
                             SupplierId = 1,
-                            UnitPrice = 887.12m,
-                            UnitsInStock = (short)30
+                            UnitPrice = 14.18m,
+                            UnitsInStock = (short)85
                         },
                         new
                         {
                             ID = 110,
                             CategoryId = 1,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 726, DateTimeKind.Local).AddTicks(1630),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 311, DateTimeKind.Local).AddTicks(9026),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=397",
+                            ImagePath = "https://picsum.photos/640/480/?image=102",
                             IsActive = true,
-                            MasterId = new Guid("269b0856-a4e0-4471-8e09-bc50399301d0"),
-                            ProductName = "Table",
+                            MasterId = new Guid("831951a2-8fa8-4eca-a570-46cd4024195b"),
+                            ProductName = "Car",
                             Status = 0,
                             SupplierId = 1,
-                            UnitPrice = 705.80m,
-                            UnitsInStock = (short)93
+                            UnitPrice = 734.59m,
+                            UnitsInStock = (short)8
                         },
                         new
                         {
                             ID = 111,
                             CategoryId = 1,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 726, DateTimeKind.Local).AddTicks(3917),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 312, DateTimeKind.Local).AddTicks(1371),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=74",
+                            ImagePath = "https://picsum.photos/640/480/?image=1044",
                             IsActive = true,
-                            MasterId = new Guid("1abb2bc6-2626-43d0-8c60-108aae66a254"),
-                            ProductName = "Bacon",
+                            MasterId = new Guid("537a260a-845e-448e-8005-827c62b15163"),
+                            ProductName = "Gloves",
                             Status = 0,
                             SupplierId = 1,
-                            UnitPrice = 741.09m,
-                            UnitsInStock = (short)99
+                            UnitPrice = 153.93m,
+                            UnitsInStock = (short)12
                         },
                         new
                         {
                             ID = 201,
                             CategoryId = 2,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 726, DateTimeKind.Local).AddTicks(6181),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 312, DateTimeKind.Local).AddTicks(3901),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=474",
+                            ImagePath = "https://picsum.photos/640/480/?image=211",
                             IsActive = true,
-                            MasterId = new Guid("b0df5d56-75f7-4faf-bcca-05aa2630f675"),
-                            ProductName = "Shirt",
+                            MasterId = new Guid("e32eb667-8075-4d80-8254-6d1dbbd62a65"),
+                            ProductName = "Ball",
                             Status = 0,
                             SupplierId = 2,
-                            UnitPrice = 664.48m,
-                            UnitsInStock = (short)75
+                            UnitPrice = 274.26m,
+                            UnitsInStock = (short)83
                         },
                         new
                         {
                             ID = 202,
                             CategoryId = 2,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 726, DateTimeKind.Local).AddTicks(8448),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 312, DateTimeKind.Local).AddTicks(6172),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=758",
+                            ImagePath = "https://picsum.photos/640/480/?image=121",
                             IsActive = true,
-                            MasterId = new Guid("9a5fba84-59ba-45f3-8aad-6fe6ffab7871"),
-                            ProductName = "Chair",
+                            MasterId = new Guid("2aa68523-b686-4b27-9015-133b94abbb55"),
+                            ProductName = "Cheese",
                             Status = 0,
                             SupplierId = 2,
-                            UnitPrice = 320.57m,
-                            UnitsInStock = (short)96
+                            UnitPrice = 503.00m,
+                            UnitsInStock = (short)78
                         },
                         new
                         {
                             ID = 203,
                             CategoryId = 2,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 727, DateTimeKind.Local).AddTicks(730),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 312, DateTimeKind.Local).AddTicks(8425),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=956",
+                            ImagePath = "https://picsum.photos/640/480/?image=444",
                             IsActive = true,
-                            MasterId = new Guid("6d146fa7-5f10-4afc-b2b9-264fcec6eb05"),
-                            ProductName = "Keyboard",
+                            MasterId = new Guid("fc9ca347-4abe-406f-b190-ec99b38778d5"),
+                            ProductName = "Pants",
                             Status = 0,
                             SupplierId = 2,
-                            UnitPrice = 872.74m,
-                            UnitsInStock = (short)70
+                            UnitPrice = 191.12m,
+                            UnitsInStock = (short)63
                         },
                         new
                         {
                             ID = 204,
                             CategoryId = 2,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 727, DateTimeKind.Local).AddTicks(3081),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 313, DateTimeKind.Local).AddTicks(754),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=100",
+                            ImagePath = "https://picsum.photos/640/480/?image=987",
                             IsActive = true,
-                            MasterId = new Guid("4d01eafa-8e68-4eef-a246-207ffbda075d"),
-                            ProductName = "Mouse",
+                            MasterId = new Guid("98483ddf-7ac3-42bc-b77f-bc1f2e009680"),
+                            ProductName = "Pants",
                             Status = 0,
                             SupplierId = 2,
-                            UnitPrice = 690.60m,
-                            UnitsInStock = (short)24
+                            UnitPrice = 247.59m,
+                            UnitsInStock = (short)8
                         },
                         new
                         {
                             ID = 205,
                             CategoryId = 2,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 727, DateTimeKind.Local).AddTicks(5335),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 313, DateTimeKind.Local).AddTicks(3030),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=16",
+                            ImagePath = "https://picsum.photos/640/480/?image=120",
                             IsActive = true,
-                            MasterId = new Guid("70a01dcf-28e4-400d-aa7d-805b31d739df"),
-                            ProductName = "Bike",
+                            MasterId = new Guid("d330a09f-964a-4bd5-a3fe-74e397cf91c9"),
+                            ProductName = "Soap",
                             Status = 0,
                             SupplierId = 2,
-                            UnitPrice = 456.36m,
-                            UnitsInStock = (short)4
+                            UnitPrice = 998.43m,
+                            UnitsInStock = (short)60
                         },
                         new
                         {
                             ID = 206,
                             CategoryId = 2,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 727, DateTimeKind.Local).AddTicks(7546),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 313, DateTimeKind.Local).AddTicks(5287),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=521",
+                            ImagePath = "https://picsum.photos/640/480/?image=291",
                             IsActive = true,
-                            MasterId = new Guid("2279c022-1a65-4bc6-a61b-8fb423f74cdc"),
-                            ProductName = "Chicken",
+                            MasterId = new Guid("049402ed-057f-4369-907e-85f6082b5319"),
+                            ProductName = "Bike",
                             Status = 0,
                             SupplierId = 2,
-                            UnitPrice = 259.30m,
-                            UnitsInStock = (short)78
+                            UnitPrice = 93.83m,
+                            UnitsInStock = (short)17
                         },
                         new
                         {
                             ID = 207,
                             CategoryId = 2,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 727, DateTimeKind.Local).AddTicks(9778),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 313, DateTimeKind.Local).AddTicks(7531),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=802",
+                            ImagePath = "https://picsum.photos/640/480/?image=463",
                             IsActive = true,
-                            MasterId = new Guid("2d49adb9-d402-46ec-8557-367bfe63c660"),
-                            ProductName = "Ball",
+                            MasterId = new Guid("2fb158e0-dad8-4988-83a2-a8e874b1c870"),
+                            ProductName = "Pizza",
                             Status = 0,
                             SupplierId = 2,
-                            UnitPrice = 716.67m,
-                            UnitsInStock = (short)91
+                            UnitPrice = 782.67m,
+                            UnitsInStock = (short)80
                         },
                         new
                         {
                             ID = 208,
                             CategoryId = 2,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 728, DateTimeKind.Local).AddTicks(1991),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 313, DateTimeKind.Local).AddTicks(9777),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=789",
+                            ImagePath = "https://picsum.photos/640/480/?image=411",
                             IsActive = true,
-                            MasterId = new Guid("8f5f1740-e7a7-4909-b5b3-7273f0cc61e9"),
-                            ProductName = "Tuna",
+                            MasterId = new Guid("84aa3234-cfc2-4fd7-991f-a0ca26e921d8"),
+                            ProductName = "Bike",
                             Status = 0,
                             SupplierId = 2,
-                            UnitPrice = 483.96m,
-                            UnitsInStock = (short)34
+                            UnitPrice = 908.85m,
+                            UnitsInStock = (short)42
                         },
                         new
                         {
                             ID = 209,
                             CategoryId = 2,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 728, DateTimeKind.Local).AddTicks(4191),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 314, DateTimeKind.Local).AddTicks(2017),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=555",
+                            ImagePath = "https://picsum.photos/640/480/?image=177",
                             IsActive = true,
-                            MasterId = new Guid("d106fd0a-60f6-487b-965a-528953214cb9"),
-                            ProductName = "Sausages",
+                            MasterId = new Guid("c2918fa4-7e03-423c-9c4b-eea25d64e8d0"),
+                            ProductName = "Fish",
                             Status = 0,
                             SupplierId = 2,
-                            UnitPrice = 114.49m,
-                            UnitsInStock = (short)21
+                            UnitPrice = 936.39m,
+                            UnitsInStock = (short)72
                         },
                         new
                         {
                             ID = 210,
                             CategoryId = 2,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 728, DateTimeKind.Local).AddTicks(6423),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 314, DateTimeKind.Local).AddTicks(4347),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=629",
+                            ImagePath = "https://picsum.photos/640/480/?image=604",
                             IsActive = true,
-                            MasterId = new Guid("14ca9e0a-69a4-45e3-bb45-0a918bd6439b"),
-                            ProductName = "Sausages",
+                            MasterId = new Guid("251bdb81-132e-4e7a-8a23-02014e54cf72"),
+                            ProductName = "Pizza",
                             Status = 0,
                             SupplierId = 2,
-                            UnitPrice = 292.94m,
-                            UnitsInStock = (short)14
+                            UnitPrice = 957.11m,
+                            UnitsInStock = (short)1
                         },
                         new
                         {
                             ID = 211,
                             CategoryId = 2,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 728, DateTimeKind.Local).AddTicks(8629),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 314, DateTimeKind.Local).AddTicks(6579),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=891",
+                            ImagePath = "https://picsum.photos/640/480/?image=781",
                             IsActive = true,
-                            MasterId = new Guid("4c5912a8-ec77-4440-bd6f-e6ae8030c696"),
-                            ProductName = "Fish",
+                            MasterId = new Guid("56da43bc-68a6-40a6-a6d6-ef01ed129671"),
+                            ProductName = "Bike",
                             Status = 0,
                             SupplierId = 2,
-                            UnitPrice = 17.11m,
-                            UnitsInStock = (short)30
+                            UnitPrice = 953.29m,
+                            UnitsInStock = (short)13
                         },
                         new
                         {
                             ID = 301,
                             CategoryId = 3,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 729, DateTimeKind.Local).AddTicks(867),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 314, DateTimeKind.Local).AddTicks(9404),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=33",
+                            ImagePath = "https://picsum.photos/640/480/?image=655",
                             IsActive = true,
-                            MasterId = new Guid("f83c1a4b-0b1b-49b2-8d2d-0c9ded8092fb"),
-                            ProductName = "Keyboard",
+                            MasterId = new Guid("60ef6adc-63a8-4373-99b7-b6209e00ff07"),
+                            ProductName = "Chips",
                             Status = 0,
                             SupplierId = 3,
-                            UnitPrice = 317.94m,
-                            UnitsInStock = (short)54
+                            UnitPrice = 399.73m,
+                            UnitsInStock = (short)1
                         },
                         new
                         {
                             ID = 302,
                             CategoryId = 3,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 729, DateTimeKind.Local).AddTicks(3083),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 315, DateTimeKind.Local).AddTicks(1662),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=79",
+                            ImagePath = "https://picsum.photos/640/480/?image=62",
                             IsActive = true,
-                            MasterId = new Guid("1deca4b0-2321-4398-a189-1fffc5cdc43e"),
-                            ProductName = "Sausages",
+                            MasterId = new Guid("aab17deb-1fc0-4cb9-a300-30368b0f50c7"),
+                            ProductName = "Mouse",
                             Status = 0,
                             SupplierId = 3,
-                            UnitPrice = 287.72m,
-                            UnitsInStock = (short)21
+                            UnitPrice = 45.80m,
+                            UnitsInStock = (short)95
                         },
                         new
                         {
                             ID = 303,
                             CategoryId = 3,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 729, DateTimeKind.Local).AddTicks(5279),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 315, DateTimeKind.Local).AddTicks(3921),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=1007",
+                            ImagePath = "https://picsum.photos/640/480/?image=480",
                             IsActive = true,
-                            MasterId = new Guid("bef296e2-77ac-4476-9d9e-a302766a3587"),
-                            ProductName = "Table",
+                            MasterId = new Guid("44672cc2-b944-46e9-a0e4-fb677340d8e1"),
+                            ProductName = "Tuna",
                             Status = 0,
                             SupplierId = 3,
-                            UnitPrice = 426.62m,
-                            UnitsInStock = (short)17
+                            UnitPrice = 40.11m,
+                            UnitsInStock = (short)32
                         },
                         new
                         {
                             ID = 304,
                             CategoryId = 3,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 729, DateTimeKind.Local).AddTicks(7477),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 315, DateTimeKind.Local).AddTicks(6214),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=930",
+                            ImagePath = "https://picsum.photos/640/480/?image=1027",
                             IsActive = true,
-                            MasterId = new Guid("dd1416b7-4338-4af6-bdff-4883be9727fb"),
-                            ProductName = "Gloves",
+                            MasterId = new Guid("213c6bb2-9046-43c6-be9a-6cb89c68c206"),
+                            ProductName = "Hat",
                             Status = 0,
                             SupplierId = 3,
-                            UnitPrice = 76.73m,
-                            UnitsInStock = (short)13
+                            UnitPrice = 578.77m,
+                            UnitsInStock = (short)14
                         },
                         new
                         {
                             ID = 305,
                             CategoryId = 3,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 730, DateTimeKind.Local).AddTicks(5),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 315, DateTimeKind.Local).AddTicks(8409),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=459",
+                            ImagePath = "https://picsum.photos/640/480/?image=774",
                             IsActive = true,
-                            MasterId = new Guid("6c080125-b24f-410a-aba1-96419aaef33a"),
-                            ProductName = "Towels",
+                            MasterId = new Guid("6a97641b-2dac-4a9b-8e66-8d1c0b11170b"),
+                            ProductName = "Shirt",
                             Status = 0,
                             SupplierId = 3,
-                            UnitPrice = 787.46m,
-                            UnitsInStock = (short)39
+                            UnitPrice = 923.22m,
+                            UnitsInStock = (short)79
                         },
                         new
                         {
                             ID = 306,
                             CategoryId = 3,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 730, DateTimeKind.Local).AddTicks(2246),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 316, DateTimeKind.Local).AddTicks(634),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=760",
+                            ImagePath = "https://picsum.photos/640/480/?image=471",
                             IsActive = true,
-                            MasterId = new Guid("2ddfdf32-0e67-4947-b924-06b59c32090b"),
-                            ProductName = "Chair",
+                            MasterId = new Guid("e37c80d6-1061-41f9-a821-208d90a40a86"),
+                            ProductName = "Bacon",
                             Status = 0,
                             SupplierId = 3,
-                            UnitPrice = 135.49m,
-                            UnitsInStock = (short)78
+                            UnitPrice = 209.74m,
+                            UnitsInStock = (short)67
                         },
                         new
                         {
                             ID = 307,
                             CategoryId = 3,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 730, DateTimeKind.Local).AddTicks(4443),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 316, DateTimeKind.Local).AddTicks(2834),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=349",
+                            ImagePath = "https://picsum.photos/640/480/?image=312",
                             IsActive = true,
-                            MasterId = new Guid("e4cd0b3a-450a-4d32-a7a3-df9870e375fe"),
-                            ProductName = "Gloves",
+                            MasterId = new Guid("0be33f5f-19ea-43c6-9c0c-44baa3b9ff1a"),
+                            ProductName = "Pants",
                             Status = 0,
                             SupplierId = 3,
-                            UnitPrice = 429.97m,
-                            UnitsInStock = (short)18
+                            UnitPrice = 307.98m,
+                            UnitsInStock = (short)59
                         },
                         new
                         {
                             ID = 308,
                             CategoryId = 3,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 730, DateTimeKind.Local).AddTicks(6626),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 316, DateTimeKind.Local).AddTicks(4996),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=281",
+                            ImagePath = "https://picsum.photos/640/480/?image=136",
                             IsActive = true,
-                            MasterId = new Guid("9bd2b70c-aac7-44f8-a2ac-05b5a736b90c"),
-                            ProductName = "Mouse",
+                            MasterId = new Guid("8c4414b8-2642-4099-bc6e-e54caa0ac2ea"),
+                            ProductName = "Table",
                             Status = 0,
                             SupplierId = 3,
-                            UnitPrice = 573.96m,
-                            UnitsInStock = (short)84
+                            UnitPrice = 966.34m,
+                            UnitsInStock = (short)71
                         },
                         new
                         {
                             ID = 309,
                             CategoryId = 3,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 730, DateTimeKind.Local).AddTicks(8845),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 316, DateTimeKind.Local).AddTicks(7158),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=12",
+                            ImagePath = "https://picsum.photos/640/480/?image=687",
                             IsActive = true,
-                            MasterId = new Guid("e9ad9dd3-2715-42ee-b18a-9725fd578b2d"),
-                            ProductName = "Tuna",
+                            MasterId = new Guid("11251d82-2ea7-4b1a-ab81-154488bdee0b"),
+                            ProductName = "Car",
                             Status = 0,
                             SupplierId = 3,
-                            UnitPrice = 216.50m,
-                            UnitsInStock = (short)26
+                            UnitPrice = 638.00m,
+                            UnitsInStock = (short)28
                         },
                         new
                         {
                             ID = 310,
                             CategoryId = 3,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 731, DateTimeKind.Local).AddTicks(1070),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 316, DateTimeKind.Local).AddTicks(9319),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=1008",
+                            ImagePath = "https://picsum.photos/640/480/?image=922",
                             IsActive = true,
-                            MasterId = new Guid("f355ccf5-69df-41a5-b5f9-97779cbc2f73"),
-                            ProductName = "Sausages",
+                            MasterId = new Guid("0fd95199-cab8-4b38-916b-ce0b0a6af795"),
+                            ProductName = "Chair",
                             Status = 0,
                             SupplierId = 3,
-                            UnitPrice = 286.85m,
-                            UnitsInStock = (short)93
+                            UnitPrice = 31.50m,
+                            UnitsInStock = (short)78
                         },
                         new
                         {
                             ID = 311,
                             CategoryId = 3,
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 731, DateTimeKind.Local).AddTicks(3341),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 317, DateTimeKind.Local).AddTicks(1472),
                             CreatedIpAddress = "10.3.21.52",
-                            ImagePath = "https://picsum.photos/640/480/?image=364",
+                            ImagePath = "https://picsum.photos/640/480/?image=990",
                             IsActive = true,
-                            MasterId = new Guid("e58d2cb1-b849-4dd1-8ea9-f78ac9fbc0a8"),
-                            ProductName = "Table",
+                            MasterId = new Guid("dd31d733-0624-4d2e-b266-29e7e58e5956"),
+                            ProductName = "Shirt",
                             Status = 0,
                             SupplierId = 3,
-                            UnitPrice = 815.30m,
-                            UnitsInStock = (short)84
+                            UnitPrice = 530.65m,
+                            UnitsInStock = (short)65
                         });
                 });
 
@@ -970,10 +969,10 @@ namespace ECommerce.MVC.Migrations
                             CompanyName = "Test Supplier1",
                             ContactName = "Test Contact1",
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 731, DateTimeKind.Local).AddTicks(7800),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 317, DateTimeKind.Local).AddTicks(6097),
                             CreatedIpAddress = "10.3.21.52",
                             IsActive = true,
-                            MasterId = new Guid("40f77b61-573d-4f6b-8254-97745cb6d420"),
+                            MasterId = new Guid("a48c34a4-a4c1-4c62-b7c6-f19553a2a20c"),
                             Status = 0
                         },
                         new
@@ -983,10 +982,10 @@ namespace ECommerce.MVC.Migrations
                             CompanyName = "Test Supplier2",
                             ContactName = "Test Contact2",
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 732, DateTimeKind.Local).AddTicks(18),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 317, DateTimeKind.Local).AddTicks(8253),
                             CreatedIpAddress = "10.3.21.52",
                             IsActive = true,
-                            MasterId = new Guid("c1bb4b9c-40ce-4676-b8cd-d92f1fda6ac2"),
+                            MasterId = new Guid("aa6e11b2-0f30-433b-816f-deb3947cd341"),
                             Status = 0
                         },
                         new
@@ -996,10 +995,10 @@ namespace ECommerce.MVC.Migrations
                             CompanyName = "TestSupplier3",
                             ContactName = "Test Contact3",
                             CreatedComputerName = "KDK-101-PC09-YZ",
-                            CreatedDate = new DateTime(2024, 5, 27, 12, 13, 42, 732, DateTimeKind.Local).AddTicks(2089),
+                            CreatedDate = new DateTime(2024, 5, 28, 11, 37, 58, 318, DateTimeKind.Local).AddTicks(315),
                             CreatedIpAddress = "10.3.21.52",
                             IsActive = true,
-                            MasterId = new Guid("0cf68cf1-7e94-4170-9064-084c0c992e7c"),
+                            MasterId = new Guid("31915868-1722-4cb3-8e82-af81e5a6f91c"),
                             Status = 0
                         });
                 });

@@ -1,4 +1,5 @@
 ﻿using ECommerce.BLL.ViewModels.AppUserViewModels;
+using ECommerce.Common.EmailHelpers;
 using ECommerce.Models.Entities;
 using ECommerce.MVC.Models;
 using Microsoft.AspNetCore.Identity;
@@ -43,7 +44,10 @@ namespace ECommerce.MVC.Controllers
 
                 if (result.Succeeded)
                 {
+                    string body = $"Merhaba {registerVM.Username} aramıza Hoşgeldiniz! İgili linke tıklayarak hesabınızı aktif hale getirebilirsiniz. https://localhost:7206/Home/Activation/TOKEN";
+
                     //Todo: Konfirmasyon maili gönderilecek.
+                    EmailSender.SendEmail(registerVM.Email, "Aktivasyon", body);
 
                     TempData["Success"] = $"{registerVM.Email} adresine aktivasyon maili gönderilmiştir. Kaydınızı tamamlayınız!";
                     return RedirectToAction("Index");

@@ -44,10 +44,14 @@ namespace ECommerce.MVC.Controllers
 
                 if (result.Succeeded)
                 {
-                    var emailToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    var emailToken =  _userManager.GenerateEmailConfirmationTokenAsync(user);
 
-                    string body = $"Merhaba {registerVM.Username} aramıza Hoşgeldiniz! İgili linke tıklayarak hesabınızı aktif hale getirebilirsiniz. https://localhost:7206/Home/Activation/{user.Id}/{emailToken}";
                     
+
+                    string confirmationLink = Url.Action("Activation", "Home", new { id = user.Id, token = emailToken.Result },Request.Scheme);
+
+                    string body = $"Merhaba {registerVM.Username} aramıza Hoşgeldiniz! İgili linke tıklayarak hesabınızı aktif hale getirebilirsiniz. {confirmationLink}";
+
 
 
                     //Todo: Konfirmasyon maili gönderilecek.
@@ -83,8 +87,23 @@ namespace ECommerce.MVC.Controllers
             return View();
         }
 
-        public IActionResult Activation(string id, string token)
+        [HttpGet]
+        public async Task<IActionResult> Activation(string id, string token)
         {
+            if (id!=null && token!=null)
+            {
+                var existUser = await _userManager.FindByIdAsync(id);
+
+                if (existUser != null)
+                {
+                    var result = await _userManager.ConfirmEmailAsync(existUser,token);
+                    if (result.Succeeded)
+                    {
+                        TempData["Success"] = "hesabınız aktif hale getirildi.";
+                        return RedirectToAction("Index");
+                    }
+                }
+            }
             //kullanıcı konfirmasyon işlemi
             return View();
         }

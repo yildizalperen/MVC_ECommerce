@@ -1,4 +1,4 @@
-using ECommerce.BLL.Repositories.Abstracts;
+﻿using ECommerce.BLL.Repositories.Abstracts;
 using ECommerce.BLL.Repositories.Concretes;
 using ECommerce.BLL.Services.Abstracts;
 using ECommerce.BLL.Services.Concretes;
@@ -33,7 +33,9 @@ builder.Services.AddScoped<ISupplierService, SupplierSerivce>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 
 //User Manager
-builder.Services.AddIdentity<AppUser, AppUserRole>().AddEntityFrameworkStores<ECommerceContext>();
+builder.Services.AddIdentity<AppUser, AppUserRole>()
+    .AddEntityFrameworkStores<ECommerceContext>()
+    .AddDefaultTokenProviders();//Token oluşturma methodu
 
 builder.Services.Configure<IdentityOptions>(x =>
 {
@@ -61,7 +63,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization(); //Yetkilendirme
-app.UseAuthentication(); //Kimlik y�netimi
+app.UseAuthentication(); //Kimlik yönetimi
 
 app.UseEndpoints(endpoints =>
 {
@@ -70,6 +72,10 @@ app.UseEndpoints(endpoints =>
       pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
     );
 
+    endpoints.MapControllerRoute(
+       name: "activationUrl",
+    pattern: "{controller=Home}/{action=Activation}/{id}/{token}"
+    );
 
     endpoints.MapControllerRoute(
        name: "default",

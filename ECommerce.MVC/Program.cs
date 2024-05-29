@@ -16,7 +16,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.ConfigureApplicationCookie(cookie =>
 {
     cookie.LoginPath = new PathString("/Home/Login");
-    cookie.AccessDeniedPath = new PathString("/Home/Denied");
+    //cookie.AccessDeniedPath = new PathString("/Home/Denied");
     cookie.Cookie = new CookieBuilder { Name = "ECommerceUserCookie" };
     cookie.SlidingExpiration = true;
     cookie.ExpireTimeSpan = TimeSpan.FromMinutes(1);
@@ -26,7 +26,7 @@ builder.Services.ConfigureApplicationCookie(cookie =>
 //DependencyInjections
 
 //AddDbContext
-builder.Services.AddDbContext<ECommerceContext>(options => options.UseSqlServer("server=DESKTOP-22DN80G;database=MVC_ECommerce;Trusted_Connection=True;TrustServerCertificate=true", b => b.MigrationsAssembly("ECommerce.MVC")));
+builder.Services.AddDbContext<ECommerceContext>(options => options.UseSqlServer("Server=KDK-101-PC09-YZ;Database=MVC_ECommerce-P;Trusted_Connection=True;TrustServerCertificate=True", b => b.MigrationsAssembly("ECommerce.MVC")));
 
 //Repository Services
 builder.Services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));

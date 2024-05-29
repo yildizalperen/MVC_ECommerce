@@ -1,4 +1,6 @@
-﻿using ECommerce.BLL.ViewModels.AppUserViewModels;
+﻿using ECommerce.BLL.Services.Abstracts;
+using ECommerce.BLL.ViewModels.AppUserViewModels;
+using ECommerce.BLL.ViewModels.ProductViewModels;
 using ECommerce.Common.EmailHelpers;
 using ECommerce.Models.Entities;
 using ECommerce.MVC.Models;
@@ -14,17 +16,35 @@ namespace ECommerce.MVC.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
+        private readonly IProductService _productService;
 
-        public HomeController(ILogger<HomeController> logger, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        public HomeController(ILogger<HomeController> logger, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IProductService productService)
         {
             _logger = logger;
             _userManager = userManager;
             _signInManager = signInManager;
+            _productService = productService;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var products = _productService.GetAllProducts()
+               .OrderByDescending(x => x.CreatedDate)
+               .Select(x => new ProductViewModelAdmin
+               {
+                   Id = x.ID,
+                   ProductName = x.ProductName,
+                   UnitPrice = x.UnitPrice,
+                   UnitsInStock = x.UnitsInStock,
+                   IsActive = x.IsActive,
+                   Status = x.Status,
+                   ImagePath = x.ImagePath,
+                   SupplierId = x.SupplierId,
+                   CategoryId = x.CategoryId
+               }).ToList();
+
+            return View(products);
+            
         }
 
         [HttpGet]

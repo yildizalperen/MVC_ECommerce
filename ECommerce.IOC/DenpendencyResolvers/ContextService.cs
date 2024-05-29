@@ -13,7 +13,7 @@ namespace ECommerce.IOC.DenpendencyResolvers
 
             var configuration = provider.GetService<IConfiguration>();
 
-            services.AddDbContext<ECommerceContext>(options => options.UseSqlServer(configuration.GetConnectionString("AlperenConnection"), b => b.MigrationsAssembly("ECommerce.MVC")));
+            services.AddDbContext<ECommerceContext>(options => options.UseSqlServer(configuration.GetConnectionString("ClassConnection"), b => b.MigrationsAssembly("ECommerce.MVC")));
 
 
 

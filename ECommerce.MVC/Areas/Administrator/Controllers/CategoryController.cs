@@ -178,7 +178,7 @@ namespace ECommerce.MVC.Areas.Administrator.Controllers
                     ImagePath = x.ImagePath,
                     Status = x.Status,
                     IsActive = x.IsActive
-                });
+                }).ToList();
 
                 return View(productsMV);
             }

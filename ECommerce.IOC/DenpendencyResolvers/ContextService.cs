@@ -16,7 +16,6 @@ namespace ECommerce.IOC.DenpendencyResolvers
             services.AddDbContext<ECommerceContext>(options => options.UseSqlServer(configuration.GetConnectionString("ClassConnection"), b => b.MigrationsAssembly("ECommerce.MVC")));
 
 
-
             return services;
         }
     }

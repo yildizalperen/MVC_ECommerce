@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using ECommerce.Models.Entities;
 using ECommerce.DAL.Context;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace ECommerce.IOC.DenpendencyResolvers
 {

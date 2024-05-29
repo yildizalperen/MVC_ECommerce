@@ -28,7 +28,7 @@ namespace ECommerce.MVC.Controllers
 
         public IActionResult Index()
         {
-            var products = _productService.GetAllProducts()
+            var products = _productService.GetActiveProducts()
                .OrderByDescending(x => x.CreatedDate)
                .Select(x => new ProductViewModelAdmin
                {

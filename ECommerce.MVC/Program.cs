@@ -6,55 +6,25 @@ using ECommerce.DAL.Context;
 using ECommerce.Models.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using ECommerce.IOC.DenpendencyResolvers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-//Cookie Configuration
-builder.Services.ConfigureApplicationCookie(cookie =>
-{
-    cookie.LoginPath = new PathString("/Home/Login");
-    //cookie.AccessDeniedPath = new PathString("/Home/Denied");
-    cookie.Cookie = new CookieBuilder { Name = "ECommerceUserCookie" };
-    cookie.SlidingExpiration = true;
-    cookie.ExpireTimeSpan = TimeSpan.FromMinutes(1);
-});
+
 
 
 //DependencyInjections
+builder.Services.AddECommerceDB();
 
-//AddDbContext
-builder.Services.AddDbContext<ECommerceContext>(options => options.UseSqlServer("Server=KDK-101-PC09-YZ;Database=MVC_ECommerce-P;Trusted_Connection=True;TrustServerCertificate=True", b => b.MigrationsAssembly("ECommerce.MVC")));
+//RepositoryServices
+builder.Services.AddRepositoryService();
 
-//Repository Services
-builder.Services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
+//UserManager
+builder.Services.AddIdentityService();
 
-//Entity Services
-
-//CategoryService
-builder.Services.AddScoped<ICategoryService, CategoryService>();
-//ProductService
-builder.Services.AddScoped<IProductService, ProductService>();
-//SupplierService
-builder.Services.AddScoped<ISupplierService, SupplierSerivce>();
-//OrderService
-builder.Services.AddScoped<IOrderService, OrderService>();
-
-//User Manager
-builder.Services.AddIdentity<AppUser, AppUserRole>()
-    .AddEntityFrameworkStores<ECommerceContext>()
-    .AddDefaultTokenProviders();//Token oluşturma methodu
-
-builder.Services.Configure<IdentityOptions>(x =>
-{
-    x.Password.RequireDigit = true; //en az 1 rakam zorunluluğu
-    x.Password.RequireNonAlphanumeric = true; //en az 1 sayı ve numara hariç karakter zorunluluğu
-    x.Password.RequireUppercase = true; //en az 1 büyük harf zorunluluğu
-    x.Password.RequireLowercase = true; //en az 1 küçük harf zorunluluğu
-    x.Password.RequiredLength = 8; //Minimum şifre uzunluğu
-});
 
 
 var app = builder.Build();
